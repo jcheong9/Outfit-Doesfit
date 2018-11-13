@@ -3,6 +3,36 @@ body {
   padding: 0;
   border: 0;
 }
+nav{
+  height: 60px;
+  background-color: #e7e7e7;
+}
+nav ul{
+  float: right;
+  width: 60%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+nav li{
+  display: inline-block;
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#companyName{
+  padding-left: 2%;
+  font-size: 24pt;
+  float: left;
+  margin-right: 20px;
+  width: 30%;
+  padding-top: 8.5px;
+  padding-bottom: 8.5px;
+}
 .storeheader {
   background-color: lightgrey;
   width: 100vw;
@@ -35,16 +65,15 @@ h1 {
   font-size: 40pt;
 }
 .jogger {
-  float:left;
   background-color: whitesmoke;
   padding: 10px;
   border: 10px solid darkgrey;
 }
-table {
+#clothes_selection {
   align-content: center;
   margin: 0 auto;
 }
-table img{
+#jogger1 {
   width: 250px;
   height: 250px;
 }
