@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.storeheader {
+  background-color: lightgrey;
+  width: 100vw;
+  height:10vh;
+  text-align: center;
+}
+h1 {
+  margin-top: 0;
+}
+.filter {
+  background-color:darkgrey;
+  float:left;
+  padding-left: 20px;
+  width: 200px;
+  height:100%;
+  color: white;
+  font-size: 16pt;
+}
+.content {
+  background-color: white;
+  float:right;
+  width:calc(100% - 220px);
+  height:100%;
+}
+#pant {
+  background-color: black;
+  color: white;
+  margin: 20px;
+  text-align: center;
+  font-size: 40pt;
+}
+.jogger {
+  float:left;
+  background-color: whitesmoke;
+  padding: 10px;
+  border: 10px solid darkgrey;
+}
+table {
+  align-content: center;
+  margin: 0 auto;
+}
+table img{
+  width: 250px;
+  height: 250px;
+}
+.button {
+  float:right;
+  padding-right:40%;
+  width: 50px;
+  height: 50px;
+}
+.itemname {
+  font-size:16pt;
+}
+@media screen and (max-width: 400px) {
+  .filter {
+    width: 100px;
+    font-size: 10pt;
+  }
+  .slider {
+    width: 80px;
+  }
+  .content {
+    width: calc(100%-320px);
+  }
+}
