@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>        
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Content */
+            .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            margin-left:150px;
+            border: 1px solid #888;
+            width: 80%;
+            }
+            /* The Close Button */
+            .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            }
+            .photo{
+            max-height: 300px;
+            max-width: 100px;
+            }
+            #sidephotodiv, #frontphotodiv{
+            display:inline-block;
+            width:40%;
+            }
+			#skip, #analyze{
+				float:right;
+				margin-left: 20px;
+			}
+        </style>
+    </head>
+    <body>
+        <article id="instructions">
+            <h1>Quick Sizing</h1>
+            <p>Upload a side and front photo to have your sizes quickly determined or press skip to manually input your sizes</p>
+        </article>
+        <div id="sidephotodiv">
+            <h2>Side Photo</h2>
+            <img src="../images/man1side.png" alt="sideselfie" class="photo" id="sidephoto">
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Upload Photo</button>
+        </div>
+        <div id="frontphotodiv">
+            <h2>Front Photo</h2>
+            <img src="../images/man1front.png" alt="frontphoto" class="photo" id="frontphoto">
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn2">Upload Photo</button>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Choose a photo</p>
+                <button class="photoBtn">man 1</button>
+                <img src="../images/man1side.png" alt="image1" class="photo">
+                <button class="photoBtn">man 2</button>
+                <img src="../images/man2side.png" alt="image2" class="photo">
+                <button class="photoBtn">woman 1</button>
+                <img src="../images/woman1side.png" alt="image2" class="photo">
+                <button class="photoBtn">woman 2</button>
+                <img src="../images/woman2side.png" alt="image2" class="photo">
+            </div>
+            front
+        </div>
+        <!-- The Modal2 -->
+        <div id="myModal2" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Choose a photo</p>
+                <button class="photoBtn">man 1</button>
+                <img src="../images/man1front.png" alt="image1" class="photo">
+                <button class="photoBtn">man 2</button>
+                <img src="../images/man2front.png" alt="image2" class="photo">
+                <button class="photoBtn">woman 1</button>
+                <img src="../images/woman1front.png" alt="image2" class="photo">
+                <button class="photoBtn">woman 2</button>
+                <img src="../images/woman2front.png" alt="image2" class="photo">
+            </div>
+        </div>
+		<div id=#bottom>
+			<button type="button" id="back">Back</button>
+			<button type="button" id="analyze">Analyze</button>
+			<button type="button" id="skip">Skip</button>
+		</div>
+        <script>
+			//Bottom- Back, Skip, Analyze Buttons;
+			var backBtn = document.getElementById('back');
+			var skipBtn = document.getElementById('skip');
+			var analyzeBtn = document.getElementById('analyze');
+			backBtn.onclick = function(){
+				location.href='OutfitDoesFitCreateAcc.html';
+			}
+			skipBtn.onclick = function(){
+				location.href ='OutfitDoesFitSizing.html';
+			}
+			analyzeBtn.onclick = function(){
+				location.href ='OutfitDoesFitSizing.html';
+			}
+            //Side Photo Upload Buttons
+            var manside1 = document.getElementsByClassName('photoBtn')[0];
+            var manside2 = document.getElementsByClassName('photoBtn')[1];
+            var womanside1 = document.getElementsByClassName('photoBtn')[2];
+            var womanside2 = document.getElementsByClassName('photoBtn')[3];
+            
+            manside1.onclick= function(){          
+                document.getElementById('sidephoto').src='../images/man1side.png';
+                modal.style.display = 'none';            
+                }
+            manside2.onclick= function(){          
+                document.getElementById('sidephoto').src='../images/man2side.png';
+                modal.style.display = 'none';            
+                }
+            womanside1.onclick= function(){          
+                document.getElementById('sidephoto').src='../images/woman1side.png';
+                modal.style.display = 'none';            
+                }
+            womanside2.onclick= function(){          
+                document.getElementById('sidephoto').src='../images/woman2side.png';
+                modal.style.display = 'none';            
+                }
+                
+            //Front Photo Upload Buttons
+            var manfront1 = document.getElementsByClassName('photoBtn')[4];
+            var manfront2 = document.getElementsByClassName('photoBtn')[5];
+            var womanfront1 = document.getElementsByClassName('photoBtn')[6];
+            var womanfront2 = document.getElementsByClassName('photoBtn')[7];
+            
+            manfront1.onclick= function(){          
+                document.getElementById('frontphoto').src='../images/man1front.png';
+                modal2.style.display = 'none';            
+                }
+            manfront2.onclick= function(){          
+                document.getElementById('frontphoto').src='../images/man2front.png';
+                modal2.style.display = 'none';            
+                }
+            womanfront1.onclick= function(){          
+                document.getElementById('frontphoto').src='../images/woman1front.png';
+                modal2.style.display = 'none';            
+                }
+            womanfront2.onclick= function(){          
+                document.getElementById('frontphoto').src='../images/woman2front.png';
+                modal2.style.display = 'none';            
+                }    
+            
+            // Get the modal
+            var modal = document.getElementById('myModal');
+            var modal2 = document.getElementById('myModal2');
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            var btn2 = document.getElementById("myBtn2");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            var span2 = document.getElementsByClassName("close")[1];
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+            btn2.onclick = function() {
+            modal2.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+            span2.onclick = function() {
+            modal2.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+            }
+        </script>
+    </body>
+</html>
