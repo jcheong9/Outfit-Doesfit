@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="./css/style.css"/>
     <style>
+      
       input[type=text], input[type=password] {
       width: 100%;
       padding: 10px 15px;
@@ -84,6 +86,21 @@
     </style>
   </head>
   <body>
+      <nav>
+          <div id="companyName">
+            OutFit DoesFit
+          </div>
+          <ul>
+            <li class="navLink"><a href="#Register">Register</a></li>
+            <li class="navLink"><a href="#Login">Login</a></li>
+            <li class="navLink"><a href="#Comparsion">Comparsion</a></li>
+            <li class="navLink"><a href="#fittingRoom">Fitting Room</a></li>
+            <li class="navLink"><a href="##">Sizing</a></li>
+            <li class="navLink"><a href="##">Shopping</a></li>
+          </ul>
+
+      </nav>
+
     <form id="accountForm">
       <h1>Sign Up</h1>
       <p>Please fill out all the information to create an account</p>
@@ -130,7 +147,7 @@
       //Sign up button
       var signupBtn = document.getElementById("signup");
       signupBtn.onclick = function(){
-        location.href = "OutfitDoesfitUpload.html";
+        location.href = "Upload.html";
       }
       // Get the modal
       var modal = document.getElementById('id01');
