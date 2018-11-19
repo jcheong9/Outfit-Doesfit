@@ -6,6 +6,20 @@
   <link rel="stylesheet" href="./css/shoppingpagestyle.css"/>
   <style type="text/css">
   </style>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
+      authDomain: "outfit-doesfit.firebaseapp.com",
+      databaseURL: "https://outfit-doesfit.firebaseio.com",
+      projectId: "outfit-doesfit",
+      storageBucket: "outfit-doesfit.appspot.com",
+      messagingSenderId: "59868218098"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 <body>
   <nav>
@@ -48,45 +62,176 @@
     <table id=clothes_selection>
       <tr>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt1" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt1btnAdd">add</button>
+          <button type="button" id="Shirt1btnRemove">remove</button>
         </td>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt2" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt2btnAdd">add</button>
+          <button type="button" id="Shirt2btnRemove">remove</button>
         </td>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt3" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt3btnAdd">add</button>
+          <button type="button" id="Shirt3btnRemove">remove</button>
         </td>
       </tr>
       <tr>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt4" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt4btnAdd">add</button>
+          <button type="button" id="Shirt4btnRemove">remove</button>
         </td>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt5" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt5btnAdd">add</button>
+          <button type="button" id="Shirt5btnRemove">remove</button>
         </td>
         <td class=jogger>
-          <img id=jogger1 src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img id="Shirt6" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname>JOGGER</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
+          <button type="button" id="Shirt6btnAdd">add</button>
+          <button type="button" id="Shirt6btnRemove">remove</button>
         </td>
       </tr>
     </table>
   </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var starCountRef = firebase.database().ref('/Clothing');
+      starCountRef.on('value', function(snapshot) {
+        var clothingObject = snapshot.val();
+        console.log(clothingObject);
+
+        for(var currentObj in clothingObject) {
+          var count = 1;
+          var urlClothing = clothingObject[currentObj];
+          var clothURL = urlClothing.url;
+          console.log(urlClothing.url);
+
+            var select = "#" + currentObj;
+            console.log(select);
+            $(select).attr('src', clothURL);
+            count++;
+
+        }
+      });
+      //btn 1
+      $("#Shirt1btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt1").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt1btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt1").update({
+          fittingRoom: "false"
+        });
+      });
+
+      $("#Shirt2btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt2").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt2btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt2").update({
+          fittingRoom: "false"
+        });
+      });
+
+      $("#Shirt3btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt3").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt3btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt3").update({
+          fittingRoom: "false"
+        });
+      });
+
+      $("#Shirt4btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt4").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt4btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt4").update({
+          fittingRoom: "false"
+        });
+      });
+      $("#Shirt5btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt5").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt5btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt5").update({
+          fittingRoom: "false"
+        });
+      });
+
+      $("#Shirt6btnAdd").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt6").update({
+          fittingRoom: "true"
+        });
+      });
+
+      $("#Shirt6btnRemove").on("click", function(event){
+        console.log("clicked",$(this));
+
+        firebase.database().ref("/Clothing/Shirt6").update({
+          fittingRoom: "false"
+        });
+      });
+      });
+    </script>
 </body>
 </html>

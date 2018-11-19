@@ -59,32 +59,35 @@
             <img id="middle" src="./images/middleImage.jpg" alt="middleImage">
           </div>
           <div class="box">
-            <img id="right" src="./images/clothSelected.PNG" alt="leftImage">
+            <img id="right" src="./images/noItemFound.png" alt="leftImage">
           </div>
         </div>
 
         <div class="boxContainer">
           <div class="box">
-            <button class="button" type="button" name="editButton">EDIT</button>
+            <button class="button" type="button" name="editButton" onclick="location.href='Sizing.html';">EDIT</button>
           </div>
           <div class="box">
             <div id="centerBottom">
               <h4>Recommended Size</h4>
               <div class="boxContainer">
-                <div class="box">S</div>
-                <div class="box">M</div>
-                <div class="box">L</div>
+                <div class="box"></div>
+                <div class="box" id="size">M</div>
+                <div class="box"></div>
               </div>
             </div>
           </div>
             <div class="box">
-              <h4>Banana Republic</h4>
+              <h4 id="brandName">Banana Republic</h4>
               <div class="boxContainer">
-                <div class="box1">
-                  <div class="arrow-left"></div>
+                <div class="box">
+                  <button class="button" type="button" name="lastButton" id="lastButton">Previous</button>
                 </div>
-                <div class="box1">
-                  <div class="arrow-right"></div>
+                <div class="box">
+                  <button class="button" type="button" name="removeButton" id="removeButton">Remove</button>
+                </div>
+                <div class="box">
+                  <button class="button" type="button" name="nextButton" id="nextButton">Next</button>
                 </div>
               </div>
             </div>
@@ -95,7 +98,7 @@
 
         <div class="boxContainer">
           <div class="box">
-            <button class="button" type="button" name="backButton">BACK</button>
+            <!-- <button class="button" type="button" name="backButton">BACK</button> -->
           </div>
           <div class="box">
 
@@ -105,5 +108,152 @@
           </div>
         </div>
       </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script>
+
+      $(document).ready(function(){
+        var currentSelection = 0;
+        var arrayClothSelection = [];
+        var arrayCurrentObj= [];
+        var starCountRef = firebase.database().ref('/Clothing');
+
+
+        function run(callback) {
+        starCountRef.on('value', function(snapshot) {
+          var clothingObject = snapshot.val();
+          // console.log(clothingObject);
+
+          for(var currentObj in clothingObject) {
+            var clothing = clothingObject[currentObj];
+            console.log(clothing.fittingRoom);
+            if(clothing.fittingRoom == "true") {
+              // console.log(clothing);
+              arrayClothSelection.push(clothing);
+              arrayCurrentObj.push(currentObj);
+
+            }
+          }
+          callback()
+
+        });
+      }
+        // var clothObj = arrayClothSelection[0];
+        // console.log(clothObj);
+
+        console.log(arrayClothSelection);
+
+        // function sleep(ms) {
+        //   return new Promise(resolve => setTimeout(resolve, ms));
+        // };
+        // async function demo() {
+        //   console.log('Taking a break...');
+        //   await sleep(1000);
+        //   console.log('one seconds later');
+        //
+        //   if (arrayClothSelection.length == 0){
+        //     $('#right').attr('src', "./images/noItemFound.png");
+        //
+        //   }else{
+        //   var clothObj = arrayClothSelection[currentSelection];
+        //   var urlClothObj = clothObj.url;
+        //   console.log(arrayClothSelection);
+        //   $('#right').attr('src', urlClothObj);
+        // }
+        // };
+
+        function initalizeAddingClothing(){
+          if (arrayClothSelection.length == 0){
+            $('#right').attr('src', "./images/noItemFound.png");
+            $('#brandName').text("None Selected");
+          }else{
+          var clothObj = arrayClothSelection[currentSelection];
+          var urlClothObj = clothObj.url;
+          var bandName = clothObj.Brand;
+          console.log(arrayClothSelection);
+          $('#right').attr('src', urlClothObj);
+          $('#brandName').text(bandName);
+
+        }
+      };
+        run(initalizeAddingClothing);
+        // demo();
+        console.log(arrayCurrentObj);
+
+        $("#removeButton").on("click", function(event){
+          console.log("clicked",$(this));
+          var shirt = arrayCurrentObj[currentSelection];
+          firebase.database().ref("/Clothing/" + shirt).update({
+            fittingRoom: "false"
+          });
+
+          arrayClothSelection.splice(currentSelection, 1);
+          arrayCurrentObj.splice(currentSelection, 1);
+          console.log(arrayClothSelection);
+          console.log(arrayCurrentObj);
+
+          if (arrayClothSelection.length == 0){
+            $('#right').attr('src', "./images/noItemFound.png");
+            $('#brandName').text("None Selected");
+          }else{
+            var clothObj = arrayClothSelection[currentSelection];
+            var urlClothObj = clothObj.url;
+            var bandName = clothObj.Brand;
+            console.log(clothObj);
+            $('#right').attr('src', urlClothObj);
+            $('#brandName').text(bandName);
+          }
+          document.location.reload(true);
+        });
+
+        $("#lastButton").on("click", function(event){
+          console.log("clicked",$(this));
+          if (currentSelection != 0){
+            currentSelection --;
+            var shirt = arrayCurrentObj[currentSelection];
+
+            if (arrayClothSelection.length == 0){
+              $('#right').attr('src', "./images/noItemFound.png");
+              $('#brandName').text("None Selected");
+            }else{
+              var clothObj = arrayClothSelection[currentSelection];
+              var urlClothObj = clothObj.url;
+              var bandName = clothObj.Brand;
+              console.log(clothObj);
+              console.log(currentSelection);
+              $('#right').attr('src', urlClothObj);
+              $('#brandName').text(bandName);
+            }
+
+          }
+
+        });
+
+        $("#nextButton").on("click", function(event){
+          console.log("clicked",$(this));
+
+          if (currentSelection != (arrayClothSelection.length - 1)){
+            currentSelection ++;
+            var shirt = arrayCurrentObj[currentSelection];
+
+            if (arrayClothSelection.length == 0){
+              $('#right').attr('src', "./images/noItemFound.png");
+              $('#brandName').text("None Selected");
+            }else{
+              var clothObj = arrayClothSelection[currentSelection];
+              var urlClothObj = clothObj.url;
+              var bandName = clothObj.Brand;
+              console.log(clothObj);
+              console.log(currentSelection);
+              $('#right').attr('src', urlClothObj);
+              $('#brandName').text(bandName);
+            }
+          }
+        });
+
+
+
+      });
+
+      </script>
   </body>
 </html>
