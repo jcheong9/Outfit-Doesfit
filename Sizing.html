@@ -4,7 +4,7 @@
 <html>
     <head>
       <link rel="stylesheet" href="./css/style.css"/>
-      
+      <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
         <style>
             #VRcharacter{
                 width:30%;
@@ -23,7 +23,7 @@
             }
             #results{
                 width:35%;
-                display:inline-block;    
+                display:block;    
                 float:left;
                 
             }
@@ -105,30 +105,30 @@
             <tbody>
                 <tr>
                     <td>Neck</td>
-                    <td><input type="number" name="necksize" value="15" min="1" max="99">
+                    <td><input type="number" name="necksize" value="15" min="1" max="99" id="necksize">
                 </tr>
                 <tr>
                     <td>Arm</td>
-                    <td><input type="number" name="armsize" value="24" min="1" max="99">
+                    <td><input type="number" name="armsize" value="24" min="1" max="99" id="armsize">
                 </tr>
                 <tr>
                     <td>Chest</td>
-                    <td><input type="number" name="chestsize" value="34" min="1" max="99">
+                    <td><input type="number" name="chestsize" value="34" min="1" max="99" id="chestsize">
                 </tr>
                 <tr>
                     <td>Waist</td>
-                    <td><input type="number" name="waistsize" value="31" min="1" max="99">
+                    <td><input type="number" name="waistsize" value="31" min="1" max="99" id="waistsize">
                 </tr>
                 <tr>
                     <td>Leg Length</td>
-                    <td><input type="number" name="leglength" value="30" min="1" max="99">
+                    <td><input type="number" name="leglength" value="30" min="1" max="99" id="leglength">
                 </tr>
             </tbody>
         </table>
         <button type="button" id="more">More Measurments</button>
-        <button type="button" id="updatesize">Update Size</button>
+        <button type="button" id="updatesize" onclick="updateFirebase()">Update Size</button>
     </div>
-    <div id="results"></div>
+    <div id="results">
       <h2>Your Results</h2>
         <table>
             <thead>
@@ -137,7 +137,7 @@
                 </tr>
                 <tr>
                     <td>        
-                        <select>
+                        <select id="topsList" onchange="getSelectValue();">
                           <option value="tshirt">T-Shirt</option>
                           <option value="sweater">Sweater</option>
                           <option value="buttondown">Button-Down</option>
@@ -152,15 +152,15 @@
             </tr>
             <tr>
                 <td>Addias</td>
-                <td>Small</td>
+                <td id="addiasTop">Small</td>
             </tr>
             <tr>
                 <td>Nike</td>
-                <td>Small</td>
+                <td id="nikeTop">Small</td>
             </tr>
             <tr>
                 <td>Uniqlo</td>
-                <td>Medium</td>
+                <td id="uniqloTop">Medium</td>
             </tr>
         </table>
         <table>
@@ -195,7 +195,8 @@
                 <td>Uniqlo</td>
                 <td>31W/31W</td>
             </tr>
-        </table>    
+        </table> 
+      </div>
     <div id="bottom">
         <button type="button" id="backbutton" onclick="location.href='Upload.html';">Back</button>
         <button type="button" id="downloadbutton" onclick="location.href='Download.html';">Download Extension</button>
@@ -307,5 +308,62 @@
             }
         }
     </script>
+      <script>
+          // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBpBAL3fW-COwrq61n_e5f8LVT_nRocgtM",
+          authDomain: "test-a046f.firebaseapp.com",
+          databaseURL: "https://test-a046f.firebaseio.com",
+          projectId: "test-a046f",
+          storageBucket: "test-a046f.appspot.com",
+          messagingSenderId: "1063634305060"
+        };
+        firebase.initializeApp(config);
+        console.log(firebase);
+        
+        function saveFirebase(){
+          const fb = firebase.database().ref();
+          //get field val
+          armSize = document.getElementById('armsize').value;
+          neckSize = document.getElementById("necksize").value;
+          data = {neckSize, armSize};
+          //update firebase
+          fb.child('users/').set(data);         
+        }
+        function updateFirebase(){
+          const fb = firebase.database().ref();
+          //get field val
+          armSize = document.getElementById('armsize').value;
+          neckSize = document.getElementById("necksize").value;
+          chestSize= document.getElementById('chestsize').value;
+          waistSize = document.getElementById('waistsize').value;
+          legLength = document.getElementById('leglength').value;
+          data = {neckSize, armSize,chestSize,waistSize,legLength};
+          //update firebase
+          fb.child('users/').update(data);
+        }
+        function getData(selectedData){
+            var refNike = firebase.database().ref(selectedData).child("nike");
+            refNike.on('value', function(snapshot){
+            document.getElementById("nikeTop").innerHTML = snapshot.val();
+               });
+            var refAddias = firebase.database().ref(selectedData).child("addias");
+            refAddias.on('value', function(snapshot){
+            document.getElementById("addiasTop").innerHTML = snapshot.val();
+               }); 
+            var refUniqlo = firebase.database().ref(selectedData).child("uniqlo");
+            refUniqlo.on('value', function(snapshot){
+            document.getElementById("uniqloTop").innerHTML = snapshot.val();
+               }); 
+        }
+        function getSelectValue(){
+          var selectedValue = document.getElementById("topsList").value;
+          console.log(selectedValue);
+          if (selectedValue == "sweater"){
+            getData("sweater");
+          }
+        }
+        
+      </script>
     </body>
 </html>
