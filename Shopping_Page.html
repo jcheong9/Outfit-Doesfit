@@ -35,11 +35,11 @@
       </ul>
   </nav>
   <div class=storeheader>
-    <h1>Partner Company</h1>
+    <h1>Nike</h1>
   </div>
   <div class=filter>
     <h2>Filter</h2>
-    <p>Pants</p>
+    <p><a href=#>Pants</a></p>
     <p><a href=#>Shorts</a></p>
     <p><a href=#>Jeans</a></p>
     <p><a href=#>Joggers</a></p>
@@ -54,62 +54,70 @@
     <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
     <p>Type</p>
     <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <br/>
+    <button id="filterbutton" type="button">Filter</button>
   </div>
   <div class=content>
     <div id=pant>
-      Pants
+      Shirts
     </div>
     <table id=clothes_selection>
       <tr>
-        <td class=jogger>
-          <img id="Shirt1" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt1" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
-          <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt1btnAdd">add</button>
-          <button type="button" id="Shirt1btnRemove">remove</button>
+          <span class=itemname id="Brand1">Shirt Name</span>
+          <img class=button type="button" id=button src="images/hangar.png" alt="hanger"/>
+          <br/>
+          <button class=addbutton type="button" id="Shirt1btnAdd">Add</button>
+          <button class=removebutton type="button" id="Shirt1btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt2" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt2" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand2">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt2btnAdd">add</button>
-          <button type="button" id="Shirt2btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt2btnAdd">Add</button>
+          <button class=removebutton type="button" id="Shirt2btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt3" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt3" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand3">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt3btnAdd">add</button>
-          <button type="button" id="Shirt3btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt3btnAdd">Add</button>
+          <button clas=removebutton type="button" id="Shirt3btnRemove">Remove</button>
         </td>
       </tr>
       <tr>
-        <td class=jogger>
-          <img id="Shirt4" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt4" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand4">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt4btnAdd">add</button>
-          <button type="button" id="Shirt4btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt4btnAdd">Add</button>
+          <button class=removebutton type="button" id="Shirt4btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt5" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt5" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand5">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt5btnAdd">add</button>
-          <button type="button" id="Shirt5btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt5btnAdd">Add</button>
+          <button class=removebutton type="button" id="Shirt5btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt6" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt6" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand6">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt6btnAdd">add</button>
-          <button type="button" id="Shirt6btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt6btnAdd">Add</button>
+          <button class=removebutton type="button" id="Shirt6btnRemove">Remove</button>
         </td>
       </tr>
     </table>
@@ -122,18 +130,26 @@
       starCountRef.on('value', function(snapshot) {
         var clothingObject = snapshot.val();
         console.log(clothingObject);
-
+        var count = 1;
         for(var currentObj in clothingObject) {
-          var count = 1;
+          
           var urlClothing = clothingObject[currentObj];
           var clothURL = urlClothing.url;
           console.log(urlClothing.url);
+          
+          var BrandClothName = clothingObject[currentObj];
+          var clothName = BrandClothName.Brand;
+          console.log(BrandClothName.Brand);
 
-            var select = "#" + currentObj;
-            console.log(select);
-            $(select).attr('src', clothURL);
-            count++;
+          var select = "#" + currentObj;
+          console.log(select);
+          $(select).attr('src', clothURL);
 
+          var selectbrand = "#Brand" + count;
+          console.log(selectbrand);
+          console.log(count);
+          $(selectbrand).text(clothName);
+          count++;
         }
       });
       //btn 1

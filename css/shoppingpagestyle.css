@@ -51,6 +51,12 @@ h1 {
   color: white;
   font-size: 16pt;
 }
+#filterbutton {
+  font-size: 14pt;
+  text-align: center;
+  padding: 10px;
+  margin-left: 20%;
+}
 .content {
   background-color: white;
   float:right;
@@ -64,7 +70,7 @@ h1 {
   text-align: center;
   font-size: 40pt;
 }
-.jogger {
+.itemdata {
   background-color: whitesmoke;
   padding: 10px;
   border: 10px solid darkgrey;
@@ -73,15 +79,41 @@ h1 {
   align-content: center;
   margin: 0 auto;
 }
+.shirts {
+  width: 250px;
+  height: 250px;
+}
 #jogger1 {
   width: 250px;
   height: 250px;
 }
 .button {
   float:right;
-  padding-right:40%;
+  padding-right:10%;
   width: 50px;
   height: 50px;
+}
+.addbutton {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.removebutton {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;  
 }
 .itemname {
   font-size:16pt;
