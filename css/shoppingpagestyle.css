@@ -12,9 +12,51 @@ nav ul{
   width: 60%;
 }
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 15px;
+    background: white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: gray;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slidervalue {
+  font-size: 14pt;
+  float:right;
+  margin-right: 20px;
+  border: 1px solid black;
+}
+
 nav li{
   display: inline-block;
   float: right;
@@ -56,6 +98,8 @@ h1 {
   text-align: center;
   padding: 10px;
   margin-left: 20%;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .content {
   background-color: white;
