@@ -24,6 +24,7 @@
 <body>
   <nav>
       <div id="companyName">
+        <img class=button id=navlogo src="images/hangar.png" alt="hanger"/>
         OutFit DoesFit
       </div>
     <ul>
@@ -74,59 +75,80 @@
     <table id=clothes_selection>
       <tr>
         <td class=itemdata>
-          <img class="shirts" id="Shirt1" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt1" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand1">Shirt Name</span>
           <img class=button type="button" id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt1btnAdd">Add</button>
-          <button class=removebutton type="button" id="Shirt1btnRemove">Remove</button>
+          <button class=addbutton type="button" id="Shirt1btnAdd">
+            Add
+            <span class=addpopup id="addpopup1">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt1btnRemove">
+            Remove
+            <span class=addpopup id="removepopup1">The shirt has been removed from the fitting room</span>
+          </button>
         </td>
         <td class=itemdata>
-          <img class="shirts" id="Shirt2" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt2" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand2">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt2btnAdd">Add</button>
+          <button class=addbutton type="button" id="Shirt2btnAdd">
+            Add
+            <span class=addpopup id="addpopup2">The shirt has been added to the fitting room</span>
+          </button>
           <button class=removebutton type="button" id="Shirt2btnRemove">Remove</button>
         </td>
         <td class=itemdata>
-          <img class="shirts" id="Shirt3" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt3" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand3">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt3btnAdd">Add</button>
-          <button clas=removebutton type="button" id="Shirt3btnRemove">Remove</button>
+          <button class=addbutton type="button" id="Shirt3btnAdd">
+            Add
+            <span class=addpopup id="addpopup3">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt3btnRemove">Remove</button>
         </td>
       </tr>
       <tr>
         <td class=itemdata>
-          <img class="shirts" id="Shirt4" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt4" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand4">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt4btnAdd">Add</button>
+          <button class=addbutton type="button" id="Shirt4btnAdd">
+            Add
+            <span class=addpopup id="addpopup4">The shirt has been added to the fitting room</span>
+          </button>
           <button class=removebutton type="button" id="Shirt4btnRemove">Remove</button>
         </td>
         <td class=itemdata>
-          <img class="shirts" id="Shirt5" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt5" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand5">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt5btnAdd">Add</button>
+          <button class=addbutton type="button" id="Shirt5btnAdd">
+            Add
+            <span class=addpopup id="addpopup5">The shirt has been added to the fitting room</span>
+          </button>
           <button class=removebutton type="button" id="Shirt5btnRemove">Remove</button>
         </td>
         <td class=itemdata>
-          <img class="shirts" id="Shirt6" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+          <img class="shirts" id="Shirt6" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
           <span class=itemname id="Brand6">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
           <br/>
-          <button class=addbutton type="button" id="Shirt6btnAdd">Add</button>
+          <button class=addbutton type="button" id="Shirt6btnAdd">
+            Add
+            <span class=addpopup id="addpopup6">The shirt has been added to the fitting room</span>
+          </button>
           <button class=removebutton type="button" id="Shirt6btnRemove">Remove</button>
         </td>
       </tr>
@@ -295,6 +317,38 @@
       slider5.oninput = function() {
       output5.innerHTML = this.value;
       }
+    </script>
+    <script>
+      $("#Shirt1btnAdd").click(function() {
+        $("#addpopup1").fadeIn().delay(1500).fadeOut();
+      })
+      
+      $("#Shirt1btnRemove").click(function() {
+        $("#removepopup1").fadeIn().delay(1500).fadeOut();
+        console.log("clicked down here");
+      })
+      
+      $("#Shirt2btnAdd").click(function() {
+        $("#addpopup2").fadeIn().delay(1500).fadeOut();
+      })     
+      
+      $("#Shirt3btnAdd").click(function() {
+        $("#addpopup3").fadeIn().delay(1500).fadeOut();
+      })
+      
+      $("#Shirt4btnAdd").click(function() {
+        $("#addpopup4").fadeIn().delay(1500).fadeOut();
+      })
+      
+      $("#Shirt5btnAdd").click(function() {
+        $("#addpopup5").fadeIn().delay(1500).fadeOut();
+      })
+      
+      $("#Shirt6btnAdd").click(function() {
+        $("#addpopup6").fadeIn().delay(1500).fadeOut();
+      })
+      
+
     </script>
 </body>
 </html>
