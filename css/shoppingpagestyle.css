@@ -1,11 +1,13 @@
 body {
+  font-family: 'Noto Sans', sans-serif;
   margin: 0;
   padding: 0;
   border: 0;
 }
 nav{
   height: 60px;
-  background-color: #e7e7e7;
+  background-color: #2f435e;
+  color: white;
 }
 #navlogo {
   float: left;
@@ -18,7 +20,7 @@ nav ul{
 }
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 a:hover{
     text-decoration: none;
@@ -154,12 +156,13 @@ h1 {
   width: 75px;
   height: 75px;
 }
-
+.addbutton:hover { background: #2f435e; }
+.removebutton:hover { background: #2f435e; }
 .addbutton {
   position: relative;
-  background-color: #e7e7e7;
+  background-color: #44566c;
   border: none;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -170,9 +173,9 @@ h1 {
 }
 
 .removebutton {
-  background-color: #e7e7e7;
+  background-color: #44566c;
   border: none;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -221,7 +224,7 @@ h1 {
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
+    from {opacity: 0;}
     to {opacity: 1;}
 }
 

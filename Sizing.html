@@ -23,13 +23,13 @@
             }
             #results{
                 width:35%;
-                display:block;    
+                display:block;
                 float:left;
-                
+
             }
             #bottom{
                 width:100%;
-                display:inline-block;                
+                display:inline-block;
             }
             #downloadbutton{
                 float:right;
@@ -79,13 +79,16 @@
             OutFit DoesFit
           </div>
         <ul>
-            <li class="navLink"><a href="Create_Account.html">Register</a></li>
-            <li class="navLink"><a href="Login.html">Login</a></li>
+            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+            <li class="navLink"><a href="Login.html">Login</a></li> -->
             <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
             <li class="navLink"><a href="Sizing.html">Sizing</a></li>
             <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
           </ul>
       </nav>
+      <div class="spacer">
+        <h3>Sizing</h3>
+      </div>
 
     <div id="VRcharacter">
         <img src="pikachu.png" alt="virtualcharacter" >
@@ -94,13 +97,13 @@
         <button type="button">Rotate Right</button>
     </div>
     <div id="sizes">
-        
+
         <table>
             <thead>
                 <tr colspan="2">
                     <td><h2>Your Measurments</h2></td>
                 </tr>
-                
+
             </thead>
             <tbody>
                 <tr>
@@ -132,11 +135,11 @@
       <h2>Your Results</h2>
         <table>
             <thead>
-                <tr>        
+                <tr>
                     <td><h3>Top Size</h3></td>
                 </tr>
                 <tr>
-                    <td>        
+                    <td>
                         <select id="topsList" onchange="getSelectValue();">
                           <option value="tshirt">T-Shirt</option>
                           <option value="sweater">Sweater</option>
@@ -165,11 +168,11 @@
         </table>
         <table>
             <thead>
-                <tr>        
+                <tr>
                     <td><h3>Bottom Size</h3></td>
                 </tr>
                 <tr>
-                    <td>        
+                    <td>
                         <select>
                           <option value="Jeans">Jeans</option>
                           <option value="Shorts">Shorts</option>
@@ -195,12 +198,12 @@
                 <td>Uniqlo</td>
                 <td>31W/31W</td>
             </tr>
-        </table> 
+        </table>
       </div>
     <div id="bottom">
         <button type="button" id="backbutton" onclick="location.href='Upload.html';">Back</button>
         <button type="button" id="downloadbutton" onclick="location.href='Download.html';">Download Extension</button>
-        
+
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -212,7 +215,7 @@
             <thead>
                 <tr colspan="2">
                     <td><h2>Top:</h2></td>
-                </tr>                
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -241,7 +244,7 @@
             <thead>
                 <tr colspan="2">
                     <td><h2>Bottom:</h2></td>
-                </tr>                
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -267,11 +270,11 @@
             </tbody>
         </table>
         <h2>Fit/Style:</h2>
-        <label for="regularfit">Regular</label>      
+        <label for="regularfit">Regular</label>
         <input type="radio" id="regularfit" name="fit"><br>
-        <label for="slimfit">Slim</label>      
+        <label for="slimfit">Slim</label>
         <input type="radio" id="slimfit" name="fit"><br>
-        <label for="loosefit">Loose</label>      
+        <label for="loosefit">Loose</label>
         <input type="radio" id="loosefit" name="fit">
         <button type="button" id="moreUpdate">Update Size</button>
       </div>
@@ -291,7 +294,7 @@
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
+        // When the user clicks the button, open the modal
         btn.onclick = function() {
             modal.style.display = "block";
         }
@@ -320,7 +323,7 @@
         };
         firebase.initializeApp(config);
         console.log(firebase);
-        
+
         function saveFirebase(){
           const fb = firebase.database().ref();
           //get field val
@@ -328,7 +331,7 @@
           neckSize = document.getElementById("necksize").value;
           data = {neckSize, armSize};
           //update firebase
-          fb.child('users/').set(data);         
+          fb.child('users/').set(data);
         }
         function updateFirebase(){
           const fb = firebase.database().ref();
@@ -350,11 +353,11 @@
             var refAddias = firebase.database().ref(selectedData).child("addias");
             refAddias.on('value', function(snapshot){
             document.getElementById("addiasTop").innerHTML = snapshot.val();
-               }); 
+               });
             var refUniqlo = firebase.database().ref(selectedData).child("uniqlo");
             refUniqlo.on('value', function(snapshot){
             document.getElementById("uniqloTop").innerHTML = snapshot.val();
-               }); 
+               });
         }
         function getSelectValue(){
           var selectedValue = document.getElementById("topsList").value;
@@ -363,7 +366,7 @@
             getData("sweater");
           }
         }
-        
+
       </script>
     </body>
 </html>
