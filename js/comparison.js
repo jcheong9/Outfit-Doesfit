@@ -61,13 +61,16 @@ $(document).ready(function(){
   function initalizeAddingClothing(){
     if (arrayClothSelection.length == 0){
       $('#right').attr('src', "./images/noItemFound.png");
+      $('#left').attr('src', "./images/yourSize.PNG");
       $('#brandName').text("None Selected");
     }else{
       var clothObj = arrayClothSelection[currentSelection];
       var urlClothObj = clothObj.url;
       var bandName = clothObj.Brand;
+      var urlModel = clothObj.model;
       console.log(arrayClothSelection);
       $('#right').attr('src', urlClothObj);
+      $('#left').attr('src', urlModel);
       $('#brandName').text(bandName);
 
   }
@@ -91,13 +94,16 @@ $(document).ready(function(){
 
     if (arrayClothSelection.length == 0){
       $('#right').attr('src', "./images/noItemFound.png");
+      $('#left').attr('src', "./images/yourSize.PNG");
       $('#brandName').text("None Selected");
     }else{
       var clothObj = arrayClothSelection[currentSelection];
       var urlClothObj = clothObj.url;
       var bandName = clothObj.Brand;
+      var urlModel = clothObj.model;
       console.log(clothObj);
       $('#right').attr('src', urlClothObj);
+      $('#left').attr('src', urlModel);
       $('#brandName').text(bandName);
     }
     document.location.reload(true);
@@ -111,15 +117,18 @@ $(document).ready(function(){
 
       if (arrayClothSelection.length == 0){
         $('#right').attr('src', "./images/noItemFound.png");
+        $('#left').attr('src', "./images/yourSize.PNG");
         $('#brandName').text("None Selected");
 
       }else{
         var clothObj = arrayClothSelection[currentSelection];
         var urlClothObj = clothObj.url;
         var bandName = clothObj.Brand;
+        var urlModel = clothObj.model;
         console.log(clothObj);
         console.log(currentSelection);
         $('#right').attr('src', urlClothObj);
+        $('#left').attr('src', urlModel);
         $('#brandName').text(bandName);
       }
 
@@ -136,14 +145,17 @@ $(document).ready(function(){
 
       if (arrayClothSelection.length == 0){
         $('#right').attr('src', "./images/noItemFound.png");
+        $('#left').attr('src', "./images/yourSize.PNG");
         $('#brandName').text("None Selected");
       }else{
         var clothObj = arrayClothSelection[currentSelection];
         var urlClothObj = clothObj.url;
         var bandName = clothObj.Brand;
+        var urlModel = clothObj.model;
         console.log(clothObj);
         console.log(currentSelection);
         $('#right').attr('src', urlClothObj);
+        $('#left').attr('src', urlModel);
         $('#brandName').text(bandName);
       }
     }
