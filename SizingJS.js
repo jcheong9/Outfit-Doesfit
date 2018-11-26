@@ -283,7 +283,7 @@
                 console.log("youre small")
                 yourNikeSize = "Small";
                 };
-                chestSize = {yourGapSize}
+                chestSize = {yourNikeSize}
                 fb.child('users/').update(chestSize);
                 
               });
@@ -330,4 +330,5 @@
       getSizes("waistSize");
       addiasTopSize();
       gapTopSize();
+      nikeTopSize();
       getSelectValue();
