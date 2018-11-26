@@ -4,9 +4,9 @@
   <title>Outfit DoesFit</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="./css/shoppingpagestyle.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
   <style type="text/css">
   </style>
-
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -24,92 +24,132 @@
 <body>
   <nav>
       <div id="companyName">
+        <img class=button id=navlogo src="images/hangar.png" alt="hanger"/>
         OutFit DoesFit
       </div>
     <ul>
-        <li class="navLink"><a href="Create_Account.html">Register</a></li>
-        <li class="navLink"><a href="Login.html">Login</a></li>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
         <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
         <li class="navLink"><a href="Sizing.html">Sizing</a></li>
         <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
       </ul>
   </nav>
   <div class=storeheader>
-    <h1>Partner Company</h1>
+    <h1>Nike</h1>
   </div>
   <div class=filter>
     <h2>Filter</h2>
-    <p>Pants</p>
-    <p><a href=#>Shorts</a></p>
+    <p><a href=#>Pants</a></p>
+    <p><a href=#>Shirts</a></p>
     <p><a href=#>Jeans</a></p>
     <p><a href=#>Joggers</a></p>
     <p><a href=#>Sweatpants</a></p>
     <p>Shirts</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <p><span class="slidervalue" id="value1"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="range1"/>
+
     <p>Shoes</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <p><span class="slidervalue" id="value2"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="range2"/>
+
     <p>Price</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <p><span class="slidervalue" id="value3"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="range3"/>
+
     <p>Size</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <p><span class="slidervalue" id="value4"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="range4"/>
+
     <p>Type</p>
-    <input type="range" min="1" max="100" value="50" class="slider" id="range"/>
+    <p><span class="slidervalue" id="value5"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="range5"/>
+
+    <br/>
+    <button id="filterbutton" type="button">Filter</button>
   </div>
   <div class=content>
     <div id=pant>
-      Pants
+      Shirts
     </div>
     <table id=clothes_selection>
       <tr>
-        <td class=jogger>
-          <img id="Shirt1" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt1" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
-          <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt1btnAdd">add</button>
-          <button type="button" id="Shirt1btnRemove">remove</button>
+          <span class=itemname id="Brand1">Shirt Name</span>
+          <img class=button type="button" id=button src="images/hangar.png" alt="hanger"/>
+          <br/>
+          <button class=addbutton type="button" id="Shirt1btnAdd">
+            Add
+            <span class=addpopup id="addpopup1">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt1btnRemove">
+            Remove
+            <span class=addpopup id="removepopup1">The shirt has been removed from the fitting room</span>
+          </button>
         </td>
-        <td class=jogger>
-          <img id="Shirt2" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt2" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand2">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt2btnAdd">add</button>
-          <button type="button" id="Shirt2btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt2btnAdd">
+            Add
+            <span class=addpopup id="addpopup2">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt2btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt3" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt3" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand3">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt3btnAdd">add</button>
-          <button type="button" id="Shirt3btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt3btnAdd">
+            Add
+            <span class=addpopup id="addpopup3">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt3btnRemove">Remove</button>
         </td>
       </tr>
       <tr>
-        <td class=jogger>
-          <img id="Shirt4" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt4" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand4">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt4btnAdd">add</button>
-          <button type="button" id="Shirt4btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt4btnAdd">
+            Add
+            <span class=addpopup id="addpopup4">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt4btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt5" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt5" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand5">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt5btnAdd">add</button>
-          <button type="button" id="Shirt5btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt5btnAdd">
+            Add
+            <span class=addpopup id="addpopup5">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt5btnRemove">Remove</button>
         </td>
-        <td class=jogger>
-          <img id="Shirt6" src="images/sweatpants_uniqlo.jpeg" alt="sweatpants_uniqlo"/>
+        <td class=itemdata>
+          <img class="shirts" id="Shirt6" src="images/shirtplaceholder.png" alt="sweatpants_uniqlo"/>
           <br/>
-          <span class=itemname>JOGGER</span>
+          <span class=itemname id="Brand6">Shirt Name</span>
           <img class=button id=button src="images/hangar.png" alt="hanger"/>
-          <button type="button" id="Shirt6btnAdd">add</button>
-          <button type="button" id="Shirt6btnRemove">remove</button>
+          <br/>
+          <button class=addbutton type="button" id="Shirt6btnAdd">
+            Add
+            <span class=addpopup id="addpopup6">The shirt has been added to the fitting room</span>
+          </button>
+          <button class=removebutton type="button" id="Shirt6btnRemove">Remove</button>
         </td>
       </tr>
     </table>
@@ -122,18 +162,26 @@
       starCountRef.on('value', function(snapshot) {
         var clothingObject = snapshot.val();
         console.log(clothingObject);
-
+        var count = 1;
         for(var currentObj in clothingObject) {
-          var count = 1;
+
           var urlClothing = clothingObject[currentObj];
           var clothURL = urlClothing.url;
           console.log(urlClothing.url);
 
-            var select = "#" + currentObj;
-            console.log(select);
-            $(select).attr('src', clothURL);
-            count++;
+          var BrandClothName = clothingObject[currentObj];
+          var clothName = BrandClothName.Brand;
+          console.log(BrandClothName.Brand);
 
+          var select = "#" + currentObj;
+          console.log(select);
+          $(select).attr('src', clothURL);
+
+          var selectbrand = "#Brand" + count;
+          console.log(selectbrand);
+          console.log(count);
+          $(selectbrand).text(clothName);
+          count++;
         }
       });
       //btn 1
@@ -232,6 +280,75 @@
         });
       });
       });
+    </script>
+    <script>
+      var slider1 = document.getElementById("range1");
+      var output1 = document.getElementById("value1");
+      output1.innerHTML = slider1.value;
+
+      slider1.oninput = function() {
+      output1.innerHTML = this.value;
+      }
+      var slider2 = document.getElementById("range2");
+      var output2 = document.getElementById("value2");
+      output2.innerHTML = slider2.value;
+
+      slider2.oninput = function() {
+      output2.innerHTML = this.value;
+      }
+      var slider3 = document.getElementById("range3");
+      var output3 = document.getElementById("value3");
+      output3.innerHTML = slider3.value;
+
+      slider3.oninput = function() {
+      output3.innerHTML = this.value;
+      }
+      var slider4 = document.getElementById("range4");
+      var output4 = document.getElementById("value4");
+      output4.innerHTML = slider4.value;
+
+      slider4.oninput = function() {
+      output4.innerHTML = this.value;
+      }
+      var slider5 = document.getElementById("range5");
+      var output5 = document.getElementById("value5");
+      output5.innerHTML = slider5.value;
+
+      slider5.oninput = function() {
+      output5.innerHTML = this.value;
+      }
+    </script>
+    <script>
+      $("#Shirt1btnAdd").click(function() {
+        $("#addpopup1").fadeIn().delay(1500).fadeOut();
+      })
+
+      $("#Shirt1btnRemove").click(function() {
+        $("#removepopup1").fadeIn().delay(1500).fadeOut();
+        console.log("clicked down here");
+      })
+
+      $("#Shirt2btnAdd").click(function() {
+        $("#addpopup2").fadeIn().delay(1500).fadeOut();
+      })
+
+      $("#Shirt3btnAdd").click(function() {
+        $("#addpopup3").fadeIn().delay(1500).fadeOut();
+      })
+
+      $("#Shirt4btnAdd").click(function() {
+        $("#addpopup4").fadeIn().delay(1500).fadeOut();
+      })
+
+      $("#Shirt5btnAdd").click(function() {
+        $("#addpopup5").fadeIn().delay(1500).fadeOut();
+      })
+
+      $("#Shirt6btnAdd").click(function() {
+        $("#addpopup6").fadeIn().delay(1500).fadeOut();
+      })
+
+
     </script>
 </body>
 </html>

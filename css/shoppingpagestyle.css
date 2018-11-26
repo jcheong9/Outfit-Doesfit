@@ -1,20 +1,71 @@
 body {
+  font-family: 'Noto Sans', sans-serif;
   margin: 0;
   padding: 0;
   border: 0;
 }
 nav{
   height: 60px;
-  background-color: #e7e7e7;
+  background-color: #2f435e;
+  color: white;
+}
+#navlogo {
+  float: left;
+  display: inline-block;
+  padding: 0;
 }
 nav ul{
   float: right;
   width: 60%;
 }
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: white;
 }
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 140px;
+    height: 15px;
+    background: white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: gray;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slidervalue {
+  font-size: 14pt;
+  float:right;
+  margin-right: 20px;
+  border: 1px solid black;
+  width: 30px;
+  text-align: center;
+}
+
 nav li{
   display: inline-block;
   float: right;
@@ -33,15 +84,18 @@ nav li{
   padding-top: 8.5px;
   padding-bottom: 8.5px;
 }
+
 .storeheader {
   background-color: lightgrey;
   width: 100vw;
   height:10vh;
   text-align: center;
 }
+
 h1 {
   margin-top: 0;
 }
+
 .filter {
   background-color:darkgrey;
   float:left;
@@ -51,12 +105,23 @@ h1 {
   color: white;
   font-size: 16pt;
 }
+
+#filterbutton {
+  font-size: 14pt;
+  text-align: center;
+  padding: 10px;
+  margin-left: 20%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 .content {
   background-color: white;
   float:right;
   width:calc(100% - 220px);
   height:100%;
 }
+
 #pant {
   background-color: black;
   color: white;
@@ -64,28 +129,112 @@ h1 {
   text-align: center;
   font-size: 40pt;
 }
-.jogger {
+
+.itemdata {
   background-color: whitesmoke;
   padding: 10px;
   border: 10px solid darkgrey;
 }
+
 #clothes_selection {
   align-content: center;
   margin: 0 auto;
+}
+
+.shirts {
+  width: 250px;
+  height: 250px;
 }
 #jogger1 {
   width: 250px;
   height: 250px;
 }
+
 .button {
   float:right;
-  padding-right:40%;
-  width: 50px;
-  height: 50px;
+  padding-right:10%;
+  width: 75px;
+  height: 75px;
 }
+.addbutton:hover { background: #2f435e; }
+.removebutton:hover { background: #2f435e; }
+.addbutton {
+  position: relative;
+  background-color: #44566c;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.removebutton {
+  background-color: #44566c;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
 .itemname {
   font-size:16pt;
 }
+
+/* The actual popup (appears on top) */
+.addpopup {
+    display: hidden;
+    height: 100px;
+    width: 200px;
+    background-color: darkgrey;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+#removepopup1 {
+    display: hidden;
+    height: 100px;
+    width: 200px;
+    background-color: darkgrey;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 2;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+<!-- For the different media screens-->
 @media screen and (max-width: 400px) {
   .filter {
     width: 100px;
@@ -95,6 +244,6 @@ h1 {
     width: 80px;
   }
   .content {
-    width: calc(100%-320px);
+    width: calc(100%-420px);
   }
 }
