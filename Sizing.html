@@ -1,242 +1,210 @@
 <!DOCTYPE html>
-
-
 <html>
-    <head>
-      <link rel="stylesheet" href="./css/style.css"/>
-      <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-        <style>
-            #VRcharacter{
-                width:30%;
-                border:3px solid black;
-                display:inline-block;
-                float:left;
-            }
-            #VRcharacter img{
-                height:300px;
-            }
-            #sizes{
-                width:30%;
-                border:3px solid black;
-                display:inline-block;
-                float:left;
-            }
-            #results{
-                width:35%;
-                display:block;
-                float:left;
-
-            }
-            #bottom{
-                width:100%;
-                display:inline-block;
-            }
-            #downloadbutton{
-                float:right;
-            }
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                padding-top: 100px; /* Location of the box */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            }
-
-            /* Modal Content */
-            .modal-content {
-                background-color: #fefefe;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-            }
-
-            /* The Close Button */
-            .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-      <nav>
-          <div id="companyName">
-            OutFit DoesFit
-          </div>
-        <ul>
-            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
-            <li class="navLink"><a href="Login.html">Login</a></li> -->
-            <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
-            <li class="navLink"><a href="Sizing.html">Sizing</a></li>
-            <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
-          </ul>
-      </nav>
-      <div class="spacer">
-        <h3>Sizing</h3>
+  <head>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <style>
+      #VRcharacter{
+      width:30%;
+      border:3px solid black;
+      display:inline-block;
+      float:left;
+      }
+      #VRcharacter img{
+      height:300px;
+      }
+      #sizes{
+      width:30%;
+      border:3px solid black;
+      display:inline-block;
+      float:left;
+      }
+      #results{
+      width:35%;
+      display:block;
+      float:left;
+      }
+      #bottom{
+      width:100%;
+      display:inline-block;
+      }
+      #downloadbutton{
+      float:right;
+      }
+      .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      /* Modal Content */
+      .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      }
+      /* The Close Button */
+      .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="companyName">
+        OutFit DoesFit
       </div>
-
+      <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+          <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+    </nav>
+    <div class="spacer">
+      <h3>Sizing</h3>
+    </div>
     <div id="VRcharacter">
-        <img src="pikachu.png" alt="virtualcharacter" >
-        <button type="button">Change Pose</button>
-        <button type="button">Rotate Left</button>
-        <button type="button">Rotate Right</button>
+      <img src="pikachu.png" alt="virtualcharacter" >
+      <button type="button">Change Pose</button>
+      <button type="button">Rotate Left</button>
+      <button type="button">Rotate Right</button>
     </div>
     <div id="sizes">
-
-        <table>
-            <thead>
-                <tr colspan="2">
-                    <td><h2>Your Measurments</h2></td>
-                </tr>
-
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Neck</td>
-                  <td><input type="number" name="necksize" min="10" max="20" id="neckSize" placeholder="Neck Size"></td>
-                </tr>
-                <tr>
-                    <td>Arm</td>
-                  <td><input type="number" name="armsize" min="10" max="40" id="armSize" placeholder="Arm Size"></td>
-                </tr>
-                <tr>
-                    <td>Chest</td>
-                  <td><input type="number" name="chestsize" min="20" max="50" id="chestSize" placeholder="Chest Size"></td>
-                </tr>
-                <tr>
-                    <td>Waist</td>
-                  <td><input type="number" name="waistsize" min="20" max="50" id="waistSize" placeholder="Waist Size"></td>
-                </tr>
-                <tr>
-                    <td>Leg Length</td>
-                  <td><input type="number" name="leglength" min="20" max="50" id="legLength"placeholder="Leg Length"></td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" id="more">More Measurments</button>
-        <button type="button" id="updatesize" onclick="updateFirebase()">Update Size</button>
+      <table>
+        <thead>
+          <tr colspan="2">
+            <td>
+              <h2>Your Measurments</h2>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Neck</td>
+            <td><input type="number" name="necksize" min="10" max="20" id="neckSize" placeholder="Neck Size"></td>
+          </tr>
+          <tr>
+            <td>Arm</td>
+            <td><input type="number" name="armsize" min="10" max="40" id="armSize" placeholder="Arm Size"></td>
+          </tr>
+          <tr>
+            <td>Chest</td>
+            <td><input type="number" name="chestsize" min="20" max="50" id="chestSize" placeholder="Chest Size"></td>
+          </tr>
+          <tr>
+            <td>Waist</td>
+            <td><input type="number" name="waistsize" min="20" max="50" id="waistSize" placeholder="Waist Size"></td>
+          </tr>
+          <tr>
+            <td>Leg Length</td>
+            <td><input type="number" name="leglength" min="20" max="50" id="legLength"placeholder="Leg Length"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" id="more">More Measurments</button>
+      <button type="button" id="updatesize" onclick="updateFirebase()">Update Size</button>
     </div>
     <div id="results">
       <h2>Your Results</h2>
-        <table>
-            <thead>
-                <tr>
-                    <td><h3>Top Size</h3></td>
-                </tr>
-                <tr>
-                    <td>
-                        <select id="topsList" onchange="getSelectValue();">
-                          <option value="Addias">Addias</option>
-                          <option value="Gap">Gap</option>
-                        </select>
-                    </td>
-                </tr>
-            </thead>
-            <tr>
-                <th>Your Size</th>
-                <th id = "brand-size"></th>
-            </tr>  
-                <th>Brands</th>
-                <th>Size</th>
-            </tr>
-            <tr>
-                <td>Addias</td>
-                <td id="addiasTop">Small</td>
-            </tr>
-            <tr>
-                <td>Nike</td>
-                <td id="nikeTop">Small</td>
-            </tr>
-            <tr>
-                <td>Uniqlo</td>
-                <td id="uniqloTop">Medium</td>
-            </tr>
-        </table>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <h3>Top Size</h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select id="topsList" onchange="getSelectValue();">
+                <option value="Addias">Addias</option>
+                <option value="Gap">Gap</option>
+                <option value="Nike">Nike</option>
+              </select>
+            </td>
+          </tr>
+        </thead>
+        <tr>
+          <th>Your Size</th>
+          <th id = "brand-size"></th>
+        </tr>
+        <tr>
+          <th>Body Part</th>
+          <th>Size</th>
+        </tr>
+        <tr>
+          <td id="bodyPart1">Chest</td>
+          <td id="resultBodyPart1"></td>
+        </tr>
+        <tr>
+          <td id="bodyPart2">Waist</td>
+          <td id="resultBodyPart2"></td>
+        </tr>
+        <tr>
+          <td id="bodyPart3">Hip</td>
+          <td id="resultBodyPart3"></td>
+        </tr>
+      </table>
+    </div>
     <div id="bottom">
-        <button type="button" id="backbutton" onclick="location.href='Upload.html';">Back</button>
-        <button type="button" id="downloadbutton" onclick="location.href='Download.html';">Download Extension</button>
-
+      <button type="button" id="backbutton" onclick="location.href='Upload.html';">Back</button>
+      <button type="button" id="downloadbutton" onclick="location.href='Download.html';">Download Extension</button>
     </div>
     <!-- The Modal More Sizing Details-->
     <div id="myModal" class="modal">
-
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
         <table>
-            <thead>
-                <tr colspan="2">
-                    <td><h2>Top:</h2></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Neck</td>
-                  <td><input type="number" name="necksize" min="10" max="20" id="modalNeckSize"></td>
-                </tr>
-                <tr>
-                    <td>Arm</td>
-                  <td><input type="number" name="armsize" min="10" max="40" id="modalArmSize"></td>
-                </tr>
-                <tr>
-                    <td>Chest</td>
-                  <td><input type="number" name="chestsize" min="20" max="50" id="modalChestSize"></td>
-                </tr>
-                <tr>
-                    <td>Belly</td>
-                  <td><input type="number" name="bellysize" min="10" max="50" id="modalBellySize"></td>
-                </tr>
-                <tr>
-                    <td>Length</td>
-                  <td><input type="number" name="toplength" min="20" max="40" id="modalLengthSize"></td>
-                </tr>
-            </tbody>
-        </table>
-        <table>
-            <thead>
-                <tr colspan="2">
-                    <td><h2>Bottom:</h2></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Hip</td>
-                    <td><input type="number" name="hipsize" value="20" min="1" max="99">
-                </tr>
-                <tr>
-                    <td>Inseam</td>
-                    <td><input type="number" name="inseam" value="20" min="1" max="99">
-                </tr>
-                <tr>
-                    <td>Outseam</td>
-                    <td><input type="number" name="outseam" value="20" min="1" max="99">
-                </tr>
-                <tr>
-                    <td>Taper</td>
-                    <td><input type="number" name="taper" value="20" min="1" max="99">
-                </tr>
-                <tr>
-                    <td>Length</td>
-                    <td><input type="number" name="leglength" value="20" min="1" max="99">
->>>>>>> f54967f9c54fede8e8958a29cde215392a5617dc
-                </tr>
-            </tbody>
+          <thead>
+            <tr colspan="2">
+              <td>
+                <h2>Top:</h2>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Neck</td>
+              <td><input type="number" name="necksize" min="10" max="20" id="modalNeckSize"></td>
+            </tr>
+            <tr>
+              <td>Arm</td>
+              <td><input type="number" name="armsize" min="10" max="40" id="modalArmSize"></td>
+            </tr>
+            <tr>
+              <td>Chest</td>
+              <td><input type="number" name="chestsize" min="20" max="50" id="modalChestSize"></td>
+            </tr>
+            <tr>
+              <td>Belly</td>
+              <td><input type="number" name="bellysize" min="10" max="50" id="modalBellySize"></td>
+            </tr>
+            <tr>
+              <td>Length</td>
+              <td><input type="number" name="toplength" min="20" max="40" id="modalLengthSize"></td>
+              <td><input type="number" name="toplength" value="20" min="1" max="99">
+            </tr>
+          </tbody>
         </table>
         <h2>Fit/Style:</h2>
         <label for="regularfit">Regular</label>
@@ -248,293 +216,6 @@
         <button type="button" id="moreUpdate">Update Size</button>
       </div>
     </div>
-    <script>
-        //More Sizes- Update button
-        var moreUpBtn = document.getElementById("moreUpdate");
-        moreUpBtn.onclick = function(){
-          modal.style.display="none";
-         var fb2 = firebase.database().ref();
-//          //get field val
-          armSize = document.getElementById('modalArmSize').value;
-          neckSize = document.getElementById("modalNeckSize").value;
-          chestSize= document.getElementById('modalChestSize').value;
-          bellySize = document.getElementById('modalBellySize').value;
-          topLength = document.getElementById('modalLengthSize').value;
-          var data2 = {neckSize, armSize, chestSize, bellySize,topLength};
-          //update firebase
-          fb2.child('users/').update(data2);
-        }
-        // Get the modal
-        var modal = document.getElementById('myModal');
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("more");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-      <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
-          authDomain: "outfit-doesfit.firebaseapp.com",
-          databaseURL: "https://outfit-doesfit.firebaseio.com",
-          projectId: "outfit-doesfit",
-          storageBucket: "outfit-doesfit.appspot.com",
-          messagingSenderId: "59868218098"
-        };
-        firebase.initializeApp(config);
-        console.log(firebase);
-
-        function saveFirebase(){
-          const fb = firebase.database().ref();
-          //get field val
-          armSize = document.getElementById('armsize').value;
-          neckSize = document.getElementById("necksize").value;
-          data = {neckSize, armSize};
-          //update firebase
-          fb.child('users/').set(data);
-        }
-        //Uploads user size to fire base
-        function updateFirebase(){
-          const fb = firebase.database().ref();
-          //get field val
-          armSize = document.getElementById('armSize').value;
-          neckSize = document.getElementById("neckSize").value;
-          chestSize= document.getElementById('chestSize').value;
-          waistSize = document.getElementById('waistSize').value;
-          legLength = document.getElementById('legLength').value;
-          data = {neckSize, armSize,chestSize,waistSize,legLength};
-          //update firebase
-          fb.child('users/').update(data);
-        }
-<<<<<<< HEAD
-        
-        //Uploads user size to fire base MODAL VERISON
-        function updateFirebase2(){
-          console.log("update 2 ran");
-          var fb2 = firebase.database().ref();
-//          //get field val
-          armSize = document.getElementById('modalArmSize').value;
-          neckSize = document.getElementById("modalNeckSize").value;
-          chestSize= document.getElementById('modalChestSize').value;
-          bellySize = document.getElementById('modalBellySize').value;
-          topLength = document.getElementById('modalLengthSize').value;
-          var data2 = {neckSize, armSize, chestSize, bellySize,topLength};
-          //update firebase
-          fb2.child('users/').update(data2);
-=======
-        function getData(selectedData){
-            var refNike = firebase.database().ref(selectedData).child("nike");
-            refNike.on('value', function(snapshot){
-            document.getElementById("nikeTop").innerHTML = snapshot.val();
-               });
-            var refAddias = firebase.database().ref(selectedData).child("addias");
-            refAddias.on('value', function(snapshot){
-            document.getElementById("addiasTop").innerHTML = snapshot.val();
-               });
-            var refUniqlo = firebase.database().ref(selectedData).child("uniqlo");
-            refUniqlo.on('value', function(snapshot){
-            document.getElementById("uniqloTop").innerHTML = snapshot.val();
-               });
->>>>>>> f54967f9c54fede8e8958a29cde215392a5617dc
-        }
-        
-        
-        //Your sizing results drop down menu
-        
-        function getData(size, brand){
-          console.log("size and brand:" + size + brand);
-          if(brand == "Addias"){
-            document.getElementById("bodyPart1").innerHTML="Chest";
-            document.getElementById("bodyPart2").innerHTML="Waist";
-            document.getElementById("bodyPart3").innerHTML="Hip";
-            if (size == "Large"){
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '40 - 44"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '35 - 39"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '40 - 44"'
-              document.getElementById('brand-size').innerHTML = "Large"
-            } else if (size == "Medium"){
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '37 - 40"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '32 - 35"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '37 - 40"'
-              document.getElementById('brand-size').innerHTML = "Medium"
-              
-            } else {
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '34 - 37"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '30 - 32"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '35 - 37"'
-              document.getElementById('brand-size').innerHTML = "Small"
-            }
-          }
-          if(brand == "Gap"){
-            document.getElementById("bodyPart1").innerHTML="Chest";
-            document.getElementById("bodyPart2").innerHTML="Neck";
-            document.getElementById("bodyPart3").innerHTML="Sleeve";
-            if (size == "Large"){
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '42 - 44"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '16 - 16.5"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '34.5"'
-              document.getElementById('brand-size').innerHTML = "Large"
-            } else if (size == "Medium"){
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '39 - 41"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '15 - 15.5"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '33.5"'
-              document.getElementById('brand-size').innerHTML = "Medium"
-              
-            } else {
-              document.getElementById('resultBodyPart1').innerHTML = 
-              '36 - 38"';
-              document.getElementById('resultBodyPart2').innerHTML = 
-              '14 - 14.5"'
-              document.getElementById('resultBodyPart3').innerHTML = 
-              '32.5"'
-              document.getElementById('brand-size').innerHTML = "Small"
-            }
-          }
-           
-        }
-        
-        function getSelectValue(){
-          var selectedValue = document.getElementById("topsList").value;
-          var yourSize = firebase.database().ref("users/your"+selectedValue+"Size/");
-          yourSize.on('value', function(snapshot){
-            console.log(snapshot.val());
-            if (snapshot.val() == "Large"){
-              getData("Large", selectedValue);
-            } else if (snapshot.val() == "Medium"){
-              getData("Medium", selectedValue);
-            } else{
-              getData("Small", selectedValue)
-            }                 
-          })
-        }
-        
-        // Finds your Addias Size
-        function addiasTopSize(){
-         var refChestSize = firebase.database().ref("users/").child("chestSize");
-          var fb = firebase.database().ref();
-          refChestSize.on('value', function(snapshot){
-            var testing = snapshot.val();
-            console.log(testing);
-            if(testing > 38){
-              console.log("youre large");
-              yourAddiasSize = "Large";
-            }else if (testing > 34){
-              console.log("youre medium");
-              yourAddiasSize = "Medium";
-            } else {
-            console.log("youre small")
-            yourAddiasSize = "Small";
-            };
-            chestSize = {yourAddiasSize}
-            fb.child('users/').update(chestSize);
-            
-          });
-        }
-<<<<<<< HEAD
-        
-        // Finds your Gap size
-        function gapTopSize(){
-        var yourGapSize;
-         var refChestSize = firebase.database().ref("users/").child("chestSize");
-          var fb = firebase.database().ref();
-          refChestSize.on('value', function(snapshot){
-            var testing = snapshot.val();
-            console.log(testing);
-            if(testing > 42){
-              console.log("youre large");
-              yourGapSize = "Large";
-            }else if (testing > 39){
-              console.log("youre medium");
-              yourGapSize = "Medium";
-            } else {
-            console.log("youre small")
-            yourGapSize = "Small";
-            };
-            chestSize = {yourGapSize}
-            fb.child('users/').update(chestSize);
-            
-          });
-        }
-        //Updates the sizes in the input fields
-        function getSizes(size){
-          var refNike = firebase.database().ref("users/").child(size);
-            refNike.on('value', function(snapshot){
-            document.getElementById(size).value = snapshot.val();
- 
-               });
-        }
-        //Updates the sizes in the input fields MODAL
-        function getSizes2(){
-          var refNike = firebase.database().ref("users/").child("armSize");
-            refNike.on('value', function(snapshot){
-            document.getElementById('modalArmSize').value = snapshot.val(); 
-               });
-          var refNike = firebase.database().ref("users/").child("chestSize");
-            refNike.on('value', function(snapshot){
-            document.getElementById('modalChestSize').value = snapshot.val(); 
-               });
-          var refNike = firebase.database().ref("users/").child("neckSize");
-            refNike.on('value', function(snapshot){
-            document.getElementById('modalNeckSize').value = snapshot.val(); 
-               });
-          var refNike = firebase.database().ref("users/").child("bellySize");
-            refNike.on('value', function(snapshot){
-            document.getElementById('modalBellySize').value = snapshot.val(); 
-               });
-          
-          var refNike = firebase.database().ref("users/").child("topLength");
-            refNike.on('value', function(snapshot){
-            document.getElementById('modalLengthSize').value = snapshot.val(); 
-               });
-          
-        }
-        // Call the Functions
-        getSizes2();
-        getSizes("armSize");
-        getSizes("chestSize");
-        getSizes("legLength");
-        getSizes("neckSize");
-        getSizes("waistSize");
-        addiasTopSize();
-        gapTopSize();
-        getSelectValue();
-=======
-
->>>>>>> f54967f9c54fede8e8958a29cde215392a5617dc
-      </script>
-    </body>
+    <script src="SizingJS.js"></script>
+  </body>
 </html>
