@@ -4,25 +4,41 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <style>
+      .resultTitle{
+        font-size: 20px;
+        color: green;
+        font-weight:bold;
+        
+      }
+/*      VR div*/
       #VRcharacter{
       width:30%;
-      border:3px solid black;
       display:inline-block;
       float:left;
+      margin: 20px;
       }
       #VRcharacter img{
-      height:300px;
+      height:400px;
+        display:block;
+      margin: 0 auto;
       }
+      #VRcharacter button{
+      display:block;
+      margin: 0 auto;
+      }
+/*      Sizes Div */
       #sizes{
       width:30%;
-      border:3px solid black;
       display:inline-block;
       float:left;
+      margin: 20px;
       }
+      /* results div*/
       #results{
-      width:35%;
+      width:30%;
       display:block;
       float:left;
+      margin: 20px;
       }
       #bottom{
       width:100%;
@@ -30,6 +46,12 @@
       }
       #downloadbutton{
       float:right;
+      position:relative;
+      right:20px;
+      }
+      #backbutton{
+      position:relative;
+      left:20px;
       }
       .modal {
       display: none; /* Hidden by default */
@@ -84,17 +106,16 @@
       <h3>Sizing</h3>
     </div>
     <div id="VRcharacter">
-      <img src="pikachu.png" alt="virtualcharacter" >
-      <button type="button">Change Pose</button>
-      <button type="button">Rotate Left</button>
-      <button type="button">Rotate Right</button>
+      <img src="./images/virtualChar.png" alt="virtualcharacter" >
+      <br>
+      <button type="button" class="button">Change Pose</button>
     </div>
     <div id="sizes">
       <table>
         <thead>
           <tr colspan="2">
             <td>
-              <h2>Your Measurments</h2>
+              <h2>Your Measurments (inches)</h2>
             </td>
           </tr>
         </thead>
@@ -121,11 +142,14 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" id="more">More Measurments</button>
-      <button type="button" id="updatesize" onclick="updateFirebase()">Update Size</button>
+      <button type="button" id="more" class="button">More Measurments</button>
+      <button type="button" id="updatesize" onclick="updateFirebase()" class="button">Update Size</button>
     </div>
     <div id="results">
-      <h2>Your Results</h2>
+      <h2>Results</h2>
+      <span class="resultTitle">Your Size:</span>
+      <span id = "brand-size" class="resultTitle"></span>
+      <hr>
       <table>
         <thead>
           <tr>
@@ -143,10 +167,6 @@
             </td>
           </tr>
         </thead>
-        <tr>
-          <th>Your Size</th>
-          <th id = "brand-size"></th>
-        </tr>
         <tr>
           <th>Body Part</th>
           <th>Size</th>
@@ -166,8 +186,8 @@
       </table>
     </div>
     <div id="bottom">
-      <button type="button" id="backbutton" onclick="location.href='Upload.html';">Back</button>
-      <button type="button" id="downloadbutton" onclick="location.href='Download.html';">Download Extension</button>
+      <button type="button" id="backbutton" onclick="location.href='Upload.html';" class="button">Back</button>
+      <button type="button" id="downloadbutton" onclick="location.href='Download.html';" class="button">Download Extension</button>
     </div>
     <!-- The Modal More Sizing Details-->
     <div id="myModal" class="modal">
@@ -202,7 +222,6 @@
             <tr>
               <td>Length</td>
               <td><input type="number" name="toplength" min="20" max="40" id="modalLengthSize"></td>
-              <td><input type="number" name="toplength" value="20" min="1" max="99">
             </tr>
           </tbody>
         </table>
@@ -213,7 +232,8 @@
         <input type="radio" id="slimfit" name="fit"><br>
         <label for="loosefit">Loose</label>
         <input type="radio" id="loosefit" name="fit">
-        <button type="button" id="moreUpdate">Update Size</button>
+        <br>
+        <button type="button" id="moreUpdate" class="button">Update Size</button>
       </div>
     </div>
     <script src="SizingJS.js"></script>
