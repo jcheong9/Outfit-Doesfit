@@ -191,7 +191,7 @@ h1 {
 
 /* The actual popup (appears on top) */
 .addpopup {
-    display: hidden;
+    display: none;
     height: 100px;
     width: 200px;
     background-color: darkgrey;
