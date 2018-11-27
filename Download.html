@@ -4,7 +4,10 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <style>
       .logo{
-        width:10%;
+        width:30%;
+      }
+      #download-box{
+        margin:20px;
       }
     </style>
   </head>
@@ -21,12 +24,13 @@
             <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
           </ul>
       </nav>
-
-    <h1>Download Complete:</h1>
-    <p>Extension is ready to go. Press Shopping Below to Begin</p>
-    <a href="Shopping_Page.html"><img alt="amazon" src="./images/amazon.png" class="logo"></a>
-    <button type="button" id="back">Back to Sizing</button>
-
+    <div id="download-box">
+      <h1>Download Complete:</h1>
+      <p>Extension is ready to go. Press Shopping Below to Begin</p>
+      <a href="Shopping_Page.html"><img alt="amazon" src="./images/shoppingButton.jpg" class="logo"></a>
+      <br>
+      <button type="button" id="back">Back to Sizing</button>
+    </div>
     <script>
       var backBtn = document.getElementById('back');
       backBtn.onclick = function(){
