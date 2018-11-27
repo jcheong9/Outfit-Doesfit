@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Outfit DoesFit</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="./css/shoppingpagestyle.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <style type="text/css">
+    .homeContainer {
+      height: 110vh;
+      text-align: center;
+    }
+    #sizingContainer {
+      background-image: url(images/Measurements%20Sheet.jpg);
+      background-size: contain;
+    }
+    #fittingRoomContainer {
+
+    }
+    #fittingRoomButton {
+      margin-top: 1vh;
+    }
+    #shoppingContainer {
+      background-image:url(images/Partner_brands.png);
+      background-size: cover;
+    }
+    #shoppingText {
+      margin-top: 0;
+    }
+    .homeLink {
+      margin-top: 90vh;
+      width: 10vw;
+      height: 3vw;
+    }
+    .homeContainer img {
+      margin: 0 auto;
+      height: 100vh;
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
+      authDomain: "outfit-doesfit.firebaseapp.com",
+      databaseURL: "https://outfit-doesfit.firebaseio.com",
+      projectId: "outfit-doesfit",
+      storageBucket: "outfit-doesfit.appspot.com",
+      messagingSenderId: "59868218098"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+<body>
+  <nav>
+      <div id="companyName">
+        <img class=button id=navlogo src="images/hangar.png" alt="hanger"/>
+        OutFit DoesFit
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+  </nav>
+  
+  <!-- Carousel -->
+  
+  <img class="outfitdoesfitPics" src="images/Carousel1.JPG">
+  <img class="outfitdoesfitPics" src="images/Carousel2.JPG">
+  <img class="outfitdoesfitPics" src="images/Carousel3.JPG">
+<!--  <button class="leftbutton"></button>
+  <button class="rightbutton"></button>-->
+  
+  <div class="homeContainer" id="sizingContainer">
+    <span> Create your size <br/></span>
+    <button class="homeLink">Make an account now!</button>
+  </div>
+  <div class="homeContainer" id="fittingRoomContainer"> 
+    <img class="fittingRoomPics" src="images/select_clothes.JPG">
+    <img class="fittingRoomPics" src="images/Model_Try.JPG">
+    <button class="homeLink" id="fittingRoomButton">Try now!</button>
+  </div>
+  <div class="homeContainer" id="shoppingContainer">
+    <span id=#shoppingText>Shop with one of our various partners<br/></span>
+    <button class="homeLink">Shop Now!</button>
+  </div>
+  
+</body>
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("outfitdoesfitPics");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 6000);
+}
+
+var fittingIndex = 0;
+carousel2();
+  
+function carousel2() {
+    var i;
+    var x = document.getElementsByClassName("fittingRoomPics");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    fittingIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel2, 6000);
+}
+</script>
+</html>

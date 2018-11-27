@@ -319,9 +319,16 @@
       }
     </script>
     <script>
-      $("#Shirt1btnAdd").click(function() {
-        $("#addpopup1").fadeIn().delay(1500).fadeOut();
-      })
+      
+      var addPressed = false;
+
+      $("#Shirt1btnAdd").click(function(){
+          if(!addPressed) {
+              addPressed = true;
+              $("#addpopup1").fadeIn().delay(1500).fadeOut();
+              addPressed = false;
+          }
+      });
 
       $("#Shirt1btnRemove").click(function() {
         $("#removepopup1").fadeIn().delay(1500).fadeOut();
