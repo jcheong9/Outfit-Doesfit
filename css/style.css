@@ -41,6 +41,8 @@ nav li{
   padding-left: 2%;
   font-size: 24pt;
   float: left;
+  padding-top: 8.5px;
+  padding-bottom: 8.5px;
 }
 
 #topDiv{
