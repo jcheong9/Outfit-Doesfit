@@ -4,7 +4,8 @@ body {
   padding: 0;
   border: 0;
 }
-nav{
+
+/*nav {
   height: 60px;
   background-color: #2f435e;
   color: white;
@@ -13,11 +14,36 @@ nav{
   float: left;
   display: inline-block;
   padding: 0;
+  height: 60px;
+  margin: 0;  
 }
 nav ul{
   float: right;
   width: 60%;
+  margin: 0;
+  height: 60px;
 }
+
+nav li{
+  display: inline-block;
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+#companyName{
+  padding-left: 2%;
+  font-size: 24pt;
+  float: left;
+  width: 20%;
+  height: 60px;
+  border: 0;
+  padding: 0;
+  margin-left: 20px;
+}*/
+
 a {
   text-decoration: none;
   color: white;
@@ -66,24 +92,6 @@ a:hover{
   text-align: center;
 }
 
-nav li{
-  display: inline-block;
-  float: right;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-#companyName{
-  padding-left: 2%;
-  font-size: 24pt;
-  float: left;
-  margin-right: 20px;
-  width: 30%;
-  padding-top: 8.5px;
-  padding-bottom: 8.5px;
-}
 
 .storeheader {
   background-color: lightgrey;
