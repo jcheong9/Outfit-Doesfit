@@ -2,6 +2,7 @@ $(document).ready(function(){
   var currentSelection = 0;
   var arrayClothSelection = [];
   var arrayCurrentObj= [];
+  var arrayBrandObj= [];
   var starCountRef = firebase.database().ref('/Clothing');
   var dbUsers = firebase.database().ref('/users');
 
@@ -9,9 +10,16 @@ $(document).ready(function(){
     dbUsers.on('value', function(snapshot){
       var userObj = snapshot.val();
       console.log(userObj);
-      var bandSize = userObj.yourAddiasSize;
-      $('#size').text(bandSize);
-      console.log(bandSize);
+      var bandAddiasSize = userObj.yourAddiasSize;
+      var bandGapSize = userObj.yourGapSize;
+      var bandNikeSize = userObj.yourNikeSize;
+      console.log(bandAddiasSize);
+      arrayBrandObj.push(bandAddiasSize);
+      arrayBrandObj.push(bandGapSize);
+      arrayBrandObj.push(bandNikeSize);
+      console.log(arrayBrandObj);
+      // $('#size').text(bandSize);
+
     });
   }
 
@@ -72,11 +80,23 @@ $(document).ready(function(){
       $('#right').attr('src', urlClothObj);
       $('#left').attr('src', urlModel);
       $('#brandName').text(bandName);
+      console.log(bandName);
+      console.log(arrayBrandObj[0]);
+      switch(bandName) {
+          case 'Adidas':
+              $('#size').text(arrayBrandObj[0]);
+              break;
+          case 'GAP':
+              $('#size').text(arrayBrandObj[1]);
+              break;
+          default:
+              $('#size').text(arrayBrandObj[2]);
+      };
 
   }
 };
-  run(initalizeAddingClothing);
   runUser();
+  run(initalizeAddingClothing);
   // demo();
   console.log(arrayCurrentObj);
 
@@ -105,6 +125,16 @@ $(document).ready(function(){
       $('#right').attr('src', urlClothObj);
       $('#left').attr('src', urlModel);
       $('#brandName').text(bandName);
+      switch(bandName) {
+          case 'Adidas':
+              $('#size').text(arrayBrandObj[0]);
+              break;
+          case 'GAP':
+              $('#size').text(arrayBrandObj[1]);
+              break;
+          default:
+              $('#size').text(arrayBrandObj[2]);
+      };
     }
     document.location.reload(true);
   });
@@ -130,6 +160,16 @@ $(document).ready(function(){
         $('#right').attr('src', urlClothObj);
         $('#left').attr('src', urlModel);
         $('#brandName').text(bandName);
+        switch(bandName) {
+            case 'Adidas':
+                $('#size').text(arrayBrandObj[0]);
+                break;
+            case 'GAP':
+                $('#size').text(arrayBrandObj[1]);
+                break;
+            default:
+                $('#size').text(arrayBrandObj[2]);
+        };
       }
 
     }
@@ -157,6 +197,16 @@ $(document).ready(function(){
         $('#right').attr('src', urlClothObj);
         $('#left').attr('src', urlModel);
         $('#brandName').text(bandName);
+        switch(bandName) {
+            case 'Adidas':
+                $('#size').text(arrayBrandObj[0]);
+                break;
+            case 'GAP':
+                $('#size').text(arrayBrandObj[1]);
+                break;
+            default:
+                $('#size').text(arrayBrandObj[2]);
+        };
       }
     }
   });
