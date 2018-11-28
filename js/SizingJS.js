@@ -1,44 +1,37 @@
-      //More Sizes- Update button
+      //More Sizes Update button 
+      //    Gets the users sizes from the database and displays it.
       var moreUpBtn = document.getElementById("moreUpdate");
       moreUpBtn.onclick = function(){
       modal.style.display="none";
       var fb2 = firebase.database().ref();
-      //          //get field val
         armSize = document.getElementById('modalArmSize').value;
         neckSize = document.getElementById("modalNeckSize").value;
         chestSize= document.getElementById('modalChestSize').value;
         bellySize = document.getElementById('modalBellySize').value;
         topLength = document.getElementById('modalLengthSize').value;
         var data2 = {neckSize, armSize, chestSize, bellySize,topLength};
-        //update firebase
         fb2.child('users/').update(data2);
       }
-      // Get the modal
+      
+      //The Modal Functions
+      //    Makes the Modal appear and disappear.
       var modal = document.getElementById('myModal');
-      
-      // Get the button that opens the modal
       var btn = document.getElementById("more");
-      
-      // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
-      
-      // When the user clicks the button, open the modal
+
       btn.onclick = function() {
           modal.style.display = "block";
       }
-      
-      // When the user clicks on <span> (x), close the modal
       span.onclick = function() {
           modal.style.display = "none";
       }
-      
-      // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
           if (event.target == modal) {
               modal.style.display = "none";
           }
       }
-// Initialize Firebase
+      
+      // Initialize Firebase
       var config = {
         apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
         authDomain: "outfit-doesfit.firebaseapp.com",
@@ -50,16 +43,7 @@
       firebase.initializeApp(config);
       console.log(firebase);
       
-      function saveFirebase(){
-        const fb = firebase.database().ref();
-        //get field val
-        armSize = document.getElementById('armsize').value;
-        neckSize = document.getElementById("necksize").value;
-        data = {neckSize, armSize};
-        //update firebase
-        fb.child('users/').set(data);
-      }
-      //Uploads user size to fire base
+      //Uploads and Updates the user dimensions to firebase
       function updateFirebase(){
         const fb = firebase.database().ref();
         //get field val
@@ -73,7 +57,7 @@
         fb.child('users/').update(data);
       }
       
-      //Uploads user size to fire base MODAL VERISON
+      //Uploads and Updates the user dimensions to firebase MODAL VERISON
       function updateFirebase2(){
         console.log("update 2 ran");
         var fb2 = firebase.database().ref();
@@ -88,6 +72,7 @@
         fb2.child('users/').update(data2);
       }
         
+      //Gets the selected data from the dropdown menu.
       function getData(selectedData){
           var refNike = firebase.database().ref(selectedData).child("nike");
           refNike.on('value', function(snapshot){
@@ -105,7 +90,7 @@
       
       
       //Your sizing results drop down menu
-      
+      //    Caluclates your brand size based on what brand is chosen.      
       function getData(size, brand){
         console.log("size and brand:" + size + brand);
         if(brand == "Addias"){
@@ -119,7 +104,7 @@
             '35 - 39"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '40 - 44"'
-            document.getElementById('brand-size').innerHTML = "Large"
+            document.getElementById('brand-size').innerHTML = "Addias - Large"
           } else if (size == "Medium"){
             document.getElementById('resultBodyPart1').innerHTML = 
             '37 - 40"';
@@ -127,7 +112,7 @@
             '32 - 35"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '37 - 40"'
-            document.getElementById('brand-size').innerHTML = "Medium"
+            document.getElementById('brand-size').innerHTML = "Addias - Medium"
             
           } else {
             document.getElementById('resultBodyPart1').innerHTML = 
@@ -136,7 +121,7 @@
             '30 - 32"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '35 - 37"'
-            document.getElementById('brand-size').innerHTML = "Small"
+            document.getElementById('brand-size').innerHTML = "Addias - Small"
           }
         }
         if(brand == "Gap"){
@@ -150,7 +135,7 @@
             '16 - 16.5"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '34.5"'
-            document.getElementById('brand-size').innerHTML = "Large"
+            document.getElementById('brand-size').innerHTML = "Gap - Large"
           } else if (size == "Medium"){
             document.getElementById('resultBodyPart1').innerHTML = 
             '39 - 41"';
@@ -158,7 +143,7 @@
             '15 - 15.5"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '33.5"'
-            document.getElementById('brand-size').innerHTML = "Medium"
+            document.getElementById('brand-size').innerHTML = "Gap - Medium"
             
           } else {
             document.getElementById('resultBodyPart1').innerHTML = 
@@ -167,7 +152,7 @@
             '14 - 14.5"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '32.5"'
-            document.getElementById('brand-size').innerHTML = "Small"
+            document.getElementById('brand-size').innerHTML = "Gap - Small"
           }
         }
         if(brand == "Nike"){
@@ -181,7 +166,7 @@
                   '35 - 38"'
                   document.getElementById('resultBodyPart3').innerHTML = 
                   '41-44"'
-                  document.getElementById('brand-size').innerHTML = "Large"
+                  document.getElementById('brand-size').innerHTML = "Nike - Large"
                 } else if (size == "Medium"){
                   document.getElementById('resultBodyPart1').innerHTML = 
                   '37.5 - 41"';
@@ -189,7 +174,7 @@
                   '32 - 35"'
                   document.getElementById('resultBodyPart3').innerHTML = 
                   '37.5 - 41"'
-                  document.getElementById('brand-size').innerHTML = "Medium"
+                  document.getElementById('brand-size').innerHTML = "Nike - Medium"
                   
                 } else {
                   document.getElementById('resultBodyPart1').innerHTML = 
@@ -198,7 +183,7 @@
                   '29 - 32"'
                   document.getElementById('resultBodyPart3').innerHTML = 
                   '35 - 37.5"'
-                  document.getElementById('brand-size').innerHTML = "Small"
+                  document.getElementById('brand-size').innerHTML = "Nike - Small"
                 }
               }
          
@@ -219,7 +204,7 @@
         })
       }
       
-      // Finds your Addias Size
+      //Determines your Addias Size
       function addiasTopSize(){
        var refChestSize = firebase.database().ref("users/").child("chestSize");
         var fb = firebase.database().ref();
@@ -242,7 +227,7 @@
         });
       }
       
-      // Finds your Gap size
+      //Determines your Gap size
       function gapTopSize(){
       var yourGapSize;
       var refChestSize = firebase.database().ref("users/").child("chestSize");
@@ -265,7 +250,7 @@
           
         });
       }
-            // Finds your Nike size
+            //Determines your Nike size
             function nikeTopSize(){
             var yourNikeSize;
              var refChestSize = firebase.database().ref("users/").child("chestSize");
@@ -288,7 +273,7 @@
                 
               });
             }
-      //Updates the sizes in the input fields
+      //Gets your sizes to display in the input fields when initally webpage loads
       function getSizes(size){
         var refNike = firebase.database().ref("users/").child(size);
           refNike.on('value', function(snapshot){
@@ -296,7 +281,7 @@
       
              });
       }
-      //Updates the sizes in the input fields MODAL
+      //Gets your sizes to display in the input fields when initally webpage loads MODAL
       function getSizes2(){
         var refNike = firebase.database().ref("users/").child("armSize");
           refNike.on('value', function(snapshot){
@@ -321,7 +306,7 @@
              });
         
       }
-      // Call the Functions
+      //Initializes the page.
       getSizes2();
       getSizes("armSize");
       getSizes("chestSize");
