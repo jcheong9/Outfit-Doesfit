@@ -66,22 +66,23 @@
         <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
         <li class="navLink"><a href="Sizing.html">Sizing</a></li>
         <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+        <li class="navLink"><a href="Home.html">Home</a></li>
       </ul>
   </nav>
-  
+
   <!-- Carousel -->
-  
+
   <img class="outfitdoesfitPics" src="images/Carousel1.JPG">
   <img class="outfitdoesfitPics" src="images/Carousel2.JPG">
   <img class="outfitdoesfitPics" src="images/Carousel3.JPG">
 <!--  <button class="leftbutton"></button>
   <button class="rightbutton"></button>-->
-  
+
   <div class="homeContainer" id="sizingContainer">
     <span> Create your size <br/></span>
     <button class="homeLink">Make an account now!</button>
   </div>
-  <div class="homeContainer" id="fittingRoomContainer"> 
+  <div class="homeContainer" id="fittingRoomContainer">
     <img class="fittingRoomPics" src="images/select_clothes.JPG">
     <img class="fittingRoomPics" src="images/Model_Try.JPG">
     <button class="homeLink" id="fittingRoomButton">Try now!</button>
@@ -90,7 +91,7 @@
     <span id=#shoppingText>Shop with one of our various partners<br/></span>
     <button class="homeLink">Shop Now!</button>
   </div>
-  
+
 </body>
 <script>
 var slideIndex = 0;
@@ -100,26 +101,26 @@ function carousel() {
     var i;
     var x = document.getElementsByClassName("outfitdoesfitPics");
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
+      x[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
+    if (slideIndex > x.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
     setTimeout(carousel, 6000);
 }
 
 var fittingIndex = 0;
 carousel2();
-  
+
 function carousel2() {
     var i;
     var x = document.getElementsByClassName("fittingRoomPics");
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
+      x[i].style.display = "none";
     }
     fittingIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
+    if (slideIndex > x.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
     setTimeout(carousel2, 6000);
 }
 </script>
