@@ -7,9 +7,21 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="./css/SizingCSS.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <style>      
+      #bottom{
+        background: transparent !important;
+      }
+      
+      #bottom p{
+        position: relative;
+        top:20px;
+      }
+      
+    </style>
   </head>
   
   <body>
+    <div class="background-image"></div>
 <!--    Navigation Bar-->
     <nav>
       <div>
@@ -28,13 +40,14 @@
   </nav>
     
     <div class="spacer">
-      <h3>Sizing Profile</h3>
+      <span>Sizing Profile</span>
     </div>
+    <div id="main-cont">
 <!--    Virtual Character Div-->
     <div id="VRcharacter">
       <figure>
+        <h2>Your Virtual Character</h2>
         <img src="./images/virtualChar.png" alt="virtualcharacter" >
-        <figcaption>Your Virtual Character</figcaption>
       </figure>
     </div>
 <!--    Sizing Input Div-->
@@ -44,9 +57,9 @@
           <tr colspan="2">
             <td>
               <h2>Your Measurments (inches)</h2>
-              <small>*only chest size is used for calculations*</small>
+              <small>*only chest size is used for calculations</small>
               <br>
-              <small>*chest value 30-34"*</small>
+              <small>chest value 30-54" *</small>
             </td>
           </tr>
         </thead>
@@ -60,7 +73,7 @@
             <td><input type="number" name="armsize" min="10" max="40" id="armSize" placeholder="Arm Size"></td>
           </tr>
           <tr>
-            <td>Chest</td>
+            <td>Chest*</td>
             <td><input type="number" name="chestsize" min="29" max="47" id="chestSize" placeholder="Chest Size"></td>
           </tr>
           <tr>
@@ -88,7 +101,7 @@
           <tr>
             <td>
               <select id="topsList" onchange="getSelectValue();">
-                <option value="Addias">Addias</option>
+                <option value="Adidas">Adidas</option>
                 <option value="Gap">Gap</option>
                 <option value="Nike">Nike</option>
               </select>
@@ -113,10 +126,12 @@
         </tr>
       </table>
     </div>
+    
     <div id="bottom">
-      <p>Try Out Our Quick Sizing Feature:</p>
+      <p>Try Our Quick Sizing Feature:</p>
       <button type="button" id="backbutton" onclick="location.href='Upload.html';" class="button">Quick Sizing</button>
       <button type="button" id="downloadbutton" onclick="location.href='Download.html';" class="button">Download Extension</button>
+    </div>
     </div>
     <!-- The Modal for More Sizing Options-->
     <div id="myModal" class="modal">

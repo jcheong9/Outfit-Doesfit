@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="./css/style.css"/>
-    <style>
-      .logo{
-        width:30%;
-      }
-      #download-box{
-        margin:20px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/navStyle.css"/>
+      <link rel="stylesheet" href="./css/style.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/DownloadCSS.css">
   </head>
   <body>
-      <nav>
-          <div id="companyName">
-            OutFit DoesFit
-          </div>
-        <ul>
-            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
-            <li class="navLink"><a href="Login.html">Login</a></li> -->
-            <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
-            <li class="navLink"><a href="Sizing.html">Sizing</a></li>
-            <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
-          </ul>
-      </nav>
+    <div class="background-image"></div>
+<!--    Navigation Bar-->
+    <nav>
+      <div>
+        <a id="companyName" href="Home.html">
+          OutFit DoesFit
+        </a>
+        <img id=navlogo src="images/hangar.png" alt="hanger"/>
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+  </nav>
+    
+    <div class="spacer">
+      <span>Extension</span>
+    </div>
+    <div id="main-cont">
     <div id="download-box">
       <h1>Download Complete:</h1>
-      <p>Extension is ready to go. Press Shopping Below to Begin</p>
+      <p>The extension is ready to go. Press the image below to begin shopping!</p>
       <a href="Shopping_Page.html"><img alt="amazon" src="./images/shoppingButton.jpg" class="logo"></a>
       <br>
-      <button type="button" id="back">Back to Sizing</button>
+      <button type="button" id="back" class="button">Back to Sizing</button>
     </div>
-    <script>
-      var backBtn = document.getElementById('back');
-      backBtn.onclick = function(){
-        location.href = "OutfitDoesFitSizing.html";
-      }
+    </div>
+    <script src="js/DownloadJS.js">
+      
     </script>
   </body>
 </html>

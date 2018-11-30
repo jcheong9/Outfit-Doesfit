@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="css/navStyle.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <!-- <style>
     input[type=text], input[type=password] {
       width: 100%;
@@ -48,6 +50,15 @@
       padding-top: 16px;
       }
     </style> -->
+    <style>
+      #firebaseui-auth-container{
+        position:relative;
+        top:100px;
+      }
+      body{
+        background-image:url(clothingbg4.jpg)
+      }
+    </style>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
@@ -67,18 +78,22 @@
     </script>
   </head>
   <body>
-      <nav>
-          <div id="companyName">
-            OutFit DoesFit
-          </div>
-        <ul>
-            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li> -->
-            <li class="navLink"><a href="Login.html">Login</a></li>
-            <!-- <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li> -->
-            <!-- <li class="navLink"><a href="Sizing.html">Sizing</a></li> -->
-            <!-- <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li> -->
-          </ul>
-      </nav>
+<!--    Navigation Bar-->
+    <nav>
+      <div>
+        <a id="companyName" href="Home.html">
+          OutFit DoesFit
+        </a>
+        <img id=navlogo src="images/hangar.png" alt="hanger"/>
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+  </nav>
     <!-- <div id="id01" class="modal">
       <form action="/action_page.php">
         <div class="imgcontainer">
@@ -101,7 +116,7 @@
         </div>
       </form>
     </div> -->
-    <h1 id="banner">  </h1>
+    <h1 id="banner"> Welcome </h1>
     <h1 id="quote">  </h1>
     <script src="greeting.js"></script>
     <h1 id="firebaseui-auth-container"> </h1>

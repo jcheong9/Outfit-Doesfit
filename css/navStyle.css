@@ -19,6 +19,7 @@ nav li{
   text-align: center;
   padding-top: 20px;
   padding-bottom: 5px;
+  text-shadow: 2px 2px 1px black;
 } 
 
 #companyName {
@@ -29,7 +30,9 @@ nav li{
   height: 60px;
   border: 0;
   padding: 0;
+  margin-top: 7px;
   margin-left: 20px;
+  text-shadow: 3px 3px 1px black;
 }
 
 nav ul {

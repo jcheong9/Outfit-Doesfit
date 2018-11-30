@@ -2,40 +2,56 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/navStyle.css"/>
       <link rel="stylesheet" href="./css/style.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
       <link rel="stylesheet" href="./css/UploadCSS.css">
     </head>
     <body>
-      <nav>
-          <div id="companyName">
-            OutFit DoesFit
-          </div>
-        <ul>
-            <li class="navLink"><a href="Create_Account.html">Register</a></li>
-            <li class="navLink"><a href="Login.html">Login</a></li>
-            <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
-            <li class="navLink"><a href="Sizing.html">Sizing</a></li>
-            <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
-          </ul>
-      </nav>
-
+    <div class="background-image"></div>
+<!--    Navigation Bar-->
+    <nav>
+      <div>
+        <a id="companyName" href="Home.html">
+          OutFit DoesFit
+        </a>
+        <img id=navlogo src="images/hangar.png" alt="hanger"/>
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+  </nav>
+    <div class="spacer">
+      <span>Quick Sizing</span>
+    </div>
+      <div id=main-cont>
+        <h2>Instructions:</h2>
         <article id="instructions">
-            <h1>Quick Sizing</h1>
-            <p>Upload a side and front photo to have your sizes quickly analyzed!</p>
+          
+            <p>Upload a side and front photo to have your sizes quickly analyzed</p>
             <small>*only preselected images, doesn't actually work*</small>
         </article>
         <div id="sidephotodiv">
             <h2>Side Photo</h2>
             <img src="./images/man1side.png" alt="sideselfie" class="photo" id="sidephoto">
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn" class="button">Upload Photo</button>
+            <button id="myBtn" class="button" class="pick-btn">Upload Photo</button>
         </div>
         <div id="frontphotodiv">
             <h2>Front Photo</h2>
             <img src="./images/man1front.png" alt="frontphoto" class="photo" id="frontphoto">
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn2" class="button">Upload Photo</button>
+            <button id="myBtn2" class="button" class="pick-btn">Upload Photo</button>
         </div>
+        		<div id=#bottom>
+			<button type="button" id="analyze" class="button">Analyze</button>
+			<button type="button" id="skip" class="button">Back</button>
+		</div>
+      </div>
         <!-- The Modal for Photo Uploading-->
         <div id="myModal" class="modal">
             <!-- Modal content -->
@@ -61,10 +77,7 @@
                 <img src="./images/man2front.png" alt="image2" class="photo">
             </div>
         </div>
-		<div id=#bottom>
-			<button type="button" id="analyze" class="button">Analyze</button>
-			<button type="button" id="skip" class="button">Back</button>
-		</div>
+
         <script src="js/UploadJS.js">
         </script>
     </body>

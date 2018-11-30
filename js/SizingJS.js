@@ -71,29 +71,12 @@
         //update firebase
         fb2.child('users/').update(data2);
       }
-        
-      //Gets the selected data from the dropdown menu.
-      function getData(selectedData){
-          var refNike = firebase.database().ref(selectedData).child("nike");
-          refNike.on('value', function(snapshot){
-          document.getElementById("nikeTop").innerHTML = snapshot.val();
-             });
-          var refAddias = firebase.database().ref(selectedData).child("addias");
-          refAddias.on('value', function(snapshot){
-          document.getElementById("addiasTop").innerHTML = snapshot.val();
-             });
-          var refGap = firebase.database().ref(selectedData).child("gap");
-          refGap.on('value', function(snapshot){
-          document.getElementById("gapTop").innerHTML = snapshot.val();
-             });
-      }
-      
       
       //Your sizing results drop down menu
       //    Caluclates your brand size based on what brand is chosen.      
       function getData(size, brand){
         console.log("size and brand:" + size + brand);
-        if(brand == "Addias"){
+        if(brand == "Adidas"){
           document.getElementById("bodyPart1").innerHTML="Chest";
           document.getElementById("bodyPart2").innerHTML="Waist";
           document.getElementById("bodyPart3").innerHTML="Hip";
@@ -104,7 +87,7 @@
             '35 - 39"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '40 - 44"'
-            document.getElementById('brand-size').innerHTML = "Addias - Large"
+            document.getElementById('brand-size').innerHTML = "Adidas - Large"
           } else if (size == "Medium"){
             document.getElementById('resultBodyPart1').innerHTML = 
             '37 - 40"';
@@ -112,7 +95,7 @@
             '32 - 35"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '37 - 40"'
-            document.getElementById('brand-size').innerHTML = "Addias - Medium"
+            document.getElementById('brand-size').innerHTML = "Adidas - Medium"
             
           } else {
             document.getElementById('resultBodyPart1').innerHTML = 
@@ -121,7 +104,7 @@
             '30 - 32"'
             document.getElementById('resultBodyPart3').innerHTML = 
             '35 - 37"'
-            document.getElementById('brand-size').innerHTML = "Addias - Small"
+            document.getElementById('brand-size').innerHTML = "Adidas - Small"
           }
         }
         if(brand == "Gap"){
@@ -204,8 +187,8 @@
         })
       }
       
-      //Determines your Addias Size
-      function addiasTopSize(){
+      //Determines your Adidas Size
+      function adidasTopSize(){
        var refChestSize = firebase.database().ref("users/").child("chestSize");
         var fb = firebase.database().ref();
         refChestSize.on('value', function(snapshot){
@@ -213,15 +196,15 @@
           console.log(testing);
           if(testing > 38){
             console.log("youre large");
-            yourAddiasSize = "Large";
+            yourAdidasSize = "Large";
           }else if (testing > 34){
             console.log("youre medium");
-            yourAddiasSize = "Medium";
+            yourAdidasSize = "Medium";
           } else {
           console.log("youre small")
-          yourAddiasSize = "Small";
+          yourAdidasSize = "Small";
           };
-          chestSize = {yourAddiasSize}
+          chestSize = {yourAdidasSize}
           fb.child('users/').update(chestSize);
           
         });
@@ -313,7 +296,7 @@
       getSizes("legLength");
       getSizes("neckSize");
       getSizes("waistSize");
-      addiasTopSize();
+      adidasTopSize();
       gapTopSize();
       nikeTopSize();
       getSelectValue();
