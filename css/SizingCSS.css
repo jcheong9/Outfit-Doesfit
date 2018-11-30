@@ -36,14 +36,21 @@
       float:left;
       margin: 20px;
       }
+
+ #sizes a{
+  color:deepskyblue !important;
+}
 /* Bottom div */
       #bottom{
       width:100%;
       display:inline-block;
+      background: transparent !important;
       }
-#bottom p{
-  margin-left:20px;
-}
+      #bottom p{
+        position: relative;
+              top:20px;
+        margin-left:20px;
+      }
       #downloadbutton{
       float:right;
       position:relative;
@@ -70,9 +77,11 @@
       .modal-content {
       background-color: #fefefe;
       margin: auto;
-      padding: 20px;
+      padding: 40px;
       border: 1px solid #888;
-      width: 80%;
+      width: 300px;
+      border-radius: 30px;
+        
       }
       /* The Close Button */
       .close {
