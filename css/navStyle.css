@@ -1,8 +1,9 @@
 /*Nav Bar*/
 nav {
-  height: 60px;
+  height: 80px;
   background-color: #2f435e;
   color: white;
+  padding-top: 10px;
 }
 #navlogo {
   float: left;
@@ -10,6 +11,8 @@ nav {
   padding: 0;
   height: 60px;
   margin:0;
+  position: relative;
+  top: 5px;
 }
 nav li{
   display: inline-block;
@@ -20,19 +23,21 @@ nav li{
   padding-top: 20px;
   padding-bottom: 5px;
   text-shadow: 2px 2px 1px black;
+  font-size:120%;
 }
 
 #companyName {
   padding-left: 2%;
-  font-size: 24pt;
+  font-size: 34pt;
   float: left;
-  width: 220px;
+  width: 330px;
   height: 53px;
   border: 0;
   padding: 0;
-  padding-top: 7px;
+  padding-top: 5px;
   margin-left: 20px;
   text-shadow: 3px 3px 1px black;
+  font-weight:bold;
 }
 
 nav ul {
