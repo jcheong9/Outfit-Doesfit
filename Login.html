@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="css/navStyle.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-
     <style>
-      #firebaseui-auth-container{
+    #firebaseui-auth-container{
         position:relative;
         top:100px;
+      padding:20px;
       }
     </style>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
@@ -48,13 +48,14 @@
         <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
       </ul>
   </nav>
-    
-    <div class="spacer">
+    <div id=pageName>
       <span>Welcome</span>
     </div>
+    <div id="#main-cont">
     <h1 id="quote">  </h1>
     <h1 id="firebaseui-auth-container"> </h1>
       <div id="loader"></div>
+      </div>
     <script src="js/LoginJS.js"></script>
 
   </body>
