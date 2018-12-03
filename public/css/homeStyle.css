@@ -80,3 +80,53 @@ section.Slider > img{
   width: 50%;
   font-size: 18pt;
 }
+
+/*Nav Bar*/
+nav {
+  height: 80px;
+  background-color: #2f435e;
+  color: white;
+  padding-top: 10px;
+}
+#navlogo {
+  float: left;
+  display: inline-block;
+  padding: 0;
+  height: 60px;
+  margin:0;
+  position: relative;
+  top: 5px;
+}
+nav li{
+  display: inline-block;
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  text-shadow: 2px 2px 1px black;
+  font-size: 14pt;
+}
+
+#companyName {
+  padding-left: 2%;
+  font-size: 34pt;
+  float: left;
+  width: 330px;
+  height: 53px;
+  border: 0;
+  padding: 0;
+  padding-top: 5px;
+  margin-left: 20px;
+  text-shadow: 3px 3px 1px black;
+  font-weight:bold;
+}
+
+nav ul {
+float: right;
+width: 60%;
+margin: 0;
+height: 60px;
+}
+nav li:hover { background: #2f435e; }
