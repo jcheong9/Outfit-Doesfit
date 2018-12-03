@@ -181,6 +181,7 @@ h1 {
 }
 
 .removebutton {
+  position: relative;
   background-color: #44566c;
   border: none;
   color: white;
@@ -214,8 +215,8 @@ h1 {
     margin-left: -80px;
 }
 
-#removepopup1 {
-    display: hidden;
+.removepopup {
+    display: none;
     height: 100px;
     width: 200px;
     background-color: darkgrey;
