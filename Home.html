@@ -4,39 +4,16 @@
   <title>Outfit DoesFit</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="css/navStyle.css"/>
-  <link rel="stylesheet" href="./css/shoppingpagestyle.css"/>
+  <link rel="stylesheet" href="css/shoppingpagestyle.css"/>
+  <link rel="stylesheet" href="css/homeStyle.css"/>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    
+  <!-- Carousel BootStrap links-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   <style type="text/css">
-    .homeContainer {
-      height: 110vh;
-      text-align: center;
-    }
-    #sizingContainer {
-      background-image: url(images/Measurements%20Sheet.jpg);
-      background-size: contain;
-    }
-    #fittingRoomContainer {
-
-    }
-    #fittingRoomButton {
-      margin-top: 1vh;
-    }
-    #shoppingContainer {
-      background-image:url(images/Partner_brands.png);
-      background-size: cover;
-    }
-    #shoppingText {
-      margin-top: 0;
-    }
-    .homeLink {
-      margin-top: 90vh;
-      width: 10vw;
-      height: 3vw;
-    }
-    .homeContainer img {
-      margin: 0 auto;
-      height: 100vh;
-    }
   </style>
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
   <script>
@@ -55,7 +32,7 @@
 <body>
   <nav>
       <div>
-        <a id="companyName" href="Home.html">
+        <a id="companyName" href="Home.html" style="color:white;">
           OutFit DoesFit
         </a>
         <img id=navlogo src="images/hangar.png" alt="hanger"/>
@@ -63,64 +40,64 @@
     <ul>
         <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
         <li class="navLink"><a href="Login.html">Login</a></li> -->
-        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
-        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
-        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+        <li class="navLink" ><a href="Comparsion.html" style="color:white;">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html" style="color:white;">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html" style="color:white;">Shopping</a></li>
       </ul>
   </nav>
   
-  <!-- Carousel -->
-  
-  <img class="outfitdoesfitPics" src="images/Carousel1.JPG">
-  <img class="outfitdoesfitPics" src="images/Carousel2.JPG">
-  <img class="outfitdoesfitPics" src="images/Carousel3.JPG">
-<!--  <button class="leftbutton"></button>
-  <button class="rightbutton"></button>-->
-  
-  <div class="homeContainer" id="sizingContainer">
-    <span> Create your size <br/></span>
-    <button class="homeLink">Make an account now!</button>
+  <!-- Carousel to show what our website can do-->
+<section class="Slider" style="width: 100%; margin: 0; padding: 0;">
+  <div  class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target=".carousel" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel" data-slide-to="1"></li>
+      <li data-target=".carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images/fitting_room_home1_text.jpg" alt="fittingroomtitle" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">OutFit DoesFit</div>
+      </div>
+      <div class="item">
+        <img src="images/fitting_room_home.jpg" alt="fitting_room" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">Finding Your Size</div>
+      </div>
+      <div class="item">
+        <img src="images/Partners.png" alt="our_partners" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">Our Partners</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
   </div>
-  <div class="homeContainer" id="fittingRoomContainer"> 
-    <img class="fittingRoomPics" src="images/select_clothes.JPG">
-    <img class="fittingRoomPics" src="images/Model_Try.JPG">
-    <button class="homeLink" id="fittingRoomButton">Try now!</button>
-  </div>
-  <div class="homeContainer" id="shoppingContainer">
-    <span id=#shoppingText>Shop with one of our various partners<br/></span>
-    <button class="homeLink">Shop Now!</button>
-  </div>
+</section>
+<!-- Overall Steps-->
+<div class="summary">
+  <img id="outfit_summary" src="images/outfit_summary.png"/>
+  <p id="description">Outfit DoesFit is a solution to online sizing difficulty. With a 5 step simple process, you will be ready to shop online and never worry about wrong sizing again.</p>
+  <button id="startButton" type="button">Start Now</button>
+</div>
+
+<!--About us-->
+<div class="aboutUs">
+    <div id="feature1">
+      <p>About us</p>
+      <p>Started in 2018, three guys came together and decided that they were done with always finding the wrong size when shopping online. So they came up with the idea for a website that compares their sizes with the different sizes of each store. Integreated with the brands like Nike, Adidas and Gap, they have continued to grow.</p>
+    </div>
+</div>
   
 </body>
-<script>
-var slideIndex = 0;
-carousel();
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("outfitdoesfitPics");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel, 6000);
-}
-
-var fittingIndex = 0;
-carousel2();
-  
-function carousel2() {
-    var i;
-    var x = document.getElementsByClassName("fittingRoomPics");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    fittingIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel2, 6000);
-}
-</script>
 </html>
