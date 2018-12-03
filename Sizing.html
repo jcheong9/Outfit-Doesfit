@@ -5,93 +5,14 @@
     <link rel="stylesheet" href="css/navStyle.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="./css/SizingCSS.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <style>     
-      .resultTitle {
-        font-size: 20px;
-        color: green;
-        font-weight:bold;
-      }
-/*      VR div*/
-      #VRcharacter{
-      width:30%;
-      display:inline-block;
-      float:left;
-      margin: 20px;
-      }
-      #VRcharacter img{
-      height:400px;
-        display:block;
-      margin: 0 auto;
-      }
-      #VRcharacter button{
-      display:block;
-      margin: 0 auto;
-      }
-/*      Sizes Div */
-      #sizes{
-      width:30%;
-      display:inline-block;
-      float:left;
-      margin: 20px;
-      }
-      /* results div*/
-      #results{
-      width:30%;
-      display:block;
-      float:left;
-      margin: 20px;
-      }
-      #bottom{
-      width:100%;
-      display:inline-block;
-      }
-      #downloadbutton{
-      float:right;
-      position:relative;
-      right:20px;
-      }
-      #backbutton{
-      position:relative;
-      left:20px;
-      }
-      .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      padding-top: 100px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      }
-      /* Modal Content */
-      .modal-content {
-      background-color: #fefefe;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      }
-      /* The Close Button */
-      .close {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      }
-      .close:hover,
-      .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-      }
-    </style>
+
   </head>
+
   <body>
+    <div class="background-image"></div>
+<!--    Navigation Bar-->
     <nav>
       <div>
         <a id="companyName" href="Home.html">
@@ -101,26 +22,34 @@
       </div>
     <ul>
         <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
-        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Login.html">Login/Logout</a></li> -->
+        <li class="navLink"><a href="Login.html" onclick="logout()">Sign In/Out</a></li>
         <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
         <li class="navLink"><a href="Sizing.html">Sizing</a></li>
         <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+        <li class="navLink"><a href="Home.html">Home</a></li>
       </ul>
   </nav>
-    <div class="spacer">
-      <h3>Sizing</h3>
-    </div>
+
+    <div id=pageName><span>Sizing Profile</span></div>
+    <div id="main-cont">
+<!--    Virtual Character Div-->
     <div id="VRcharacter">
-      <img src="./images/virtualChar.png" alt="virtualcharacter" >
-      <br>
-      <button type="button" class="button">Change Pose</button>
+      <figure>
+        <h2>Your Virtual Character</h2>
+        <img src="./images/VRman3.gif" alt="virtualcharacter" >
+      </figure>
     </div>
+<!--    Sizing Input Div-->
     <div id="sizes">
       <table>
         <thead>
           <tr colspan="2">
             <td>
               <h2>Your Measurments (inches)</h2>
+              <small>For information on how to measure yourself: <a id="sizingLink" href="http://www.sizeguide.net/measure-your-size-men-clothing.html">click here</a></small>
+              <br>
+              <small>*only chest size is used for calculations*</small>
             </td>
           </tr>
         </thead>
@@ -134,8 +63,8 @@
             <td><input type="number" name="armsize" min="10" max="40" id="armSize" placeholder="Arm Size"></td>
           </tr>
           <tr>
-            <td>Chest</td>
-            <td><input type="number" name="chestsize" min="20" max="50" id="chestSize" placeholder="Chest Size"></td>
+            <td>Chest*</td>
+            <td><input type="number" name="chestsize" min="29" max="47" id="chestSize" placeholder="Chest Size"></td>
           </tr>
           <tr>
             <td>Waist</td>
@@ -150,22 +79,19 @@
       <button type="button" id="more" class="button">More Measurments</button>
       <button type="button" id="updatesize" onclick="updateFirebase()" class="button">Update Size</button>
     </div>
+<!--    Displays your size based on brand selected in the drop down menu-->
     <div id="results">
       <h2>Results</h2>
       <span class="resultTitle">Your Size:</span>
       <span id = "brand-size" class="resultTitle"></span>
       <hr>
+      <h2>Shirt Size</h2>
       <table>
         <thead>
           <tr>
             <td>
-              <h3>Top Size</h3>
-            </td>
-          </tr>
-          <tr>
-            <td>
               <select id="topsList" onchange="getSelectValue();">
-                <option value="Addias">Addias</option>
+                <option value="Adidas">Adidas</option>
                 <option value="Gap">Gap</option>
                 <option value="Nike">Nike</option>
               </select>
@@ -174,7 +100,7 @@
         </thead>
         <tr>
           <th>Body Part</th>
-          <th>Size</th>
+          <th>Size (inches)</th>
         </tr>
         <tr>
           <td id="bodyPart1">Chest</td>
@@ -190,11 +116,14 @@
         </tr>
       </table>
     </div>
+
     <div id="bottom">
-      <button type="button" id="backbutton" onclick="location.href='Upload.html';" class="button">Back</button>
+      <p>Try Our Quick Sizing Feature:</p>
+      <button type="button" id="backbutton" onclick="location.href='Upload.html';" class="button">Quick Sizing</button>
       <button type="button" id="downloadbutton" onclick="location.href='Download.html';" class="button">Download Extension</button>
     </div>
-    <!-- The Modal More Sizing Details-->
+    </div>
+    <!-- The Modal for More Sizing Options-->
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
@@ -210,37 +139,52 @@
           <tbody>
             <tr>
               <td>Neck</td>
-              <td><input type="number" name="necksize" min="10" max="20" id="modalNeckSize"></td>
+              <td><input type="number" name="necksize" min="10" max="20" id="modalNeckSize" placeholder="Neck Size"></td>
             </tr>
             <tr>
               <td>Arm</td>
-              <td><input type="number" name="armsize" min="10" max="40" id="modalArmSize"></td>
+              <td><input type="number" name="armsize" min="10" max="40" id="modalArmSize" placeholder="Arm Size"></td>
             </tr>
             <tr>
               <td>Chest</td>
-              <td><input type="number" name="chestsize" min="20" max="50" id="modalChestSize"></td>
+              <td><input type="number" name="chestsize" min="29" max="47" id="modalChestSize" placeholder="Chest Size"></td>
             </tr>
             <tr>
               <td>Belly</td>
-              <td><input type="number" name="bellysize" min="10" max="50" id="modalBellySize"></td>
+              <td><input type="number" name="bellysize" min="10" max="50" id="modalBellySize" placeholder="Belly Size"></td>
             </tr>
             <tr>
               <td>Length</td>
-              <td><input type="number" name="toplength" min="20" max="40" id="modalLengthSize"></td>
+              <td><input type="number" name="toplength" min="20" max="40" id="modalLengthSize" placeholder="Top Length"></td>
             </tr>
           </tbody>
         </table>
         <h2>Fit/Style:</h2>
-        <label for="regularfit">Regular</label>
-        <input type="radio" id="regularfit" name="fit"><br>
-        <label for="slimfit">Slim</label>
-        <input type="radio" id="slimfit" name="fit"><br>
-        <label for="loosefit">Loose</label>
-        <input type="radio" id="loosefit" name="fit">
-        <br>
+        <table>
+          <tr>
+            <td><label for="regularfit">Regular</label></td>
+            <td><input type="radio" id="regularfit" name="fit"></td>
+          </tr>
+          <tr>
+            <td><label for="slimfit">Slim</label></td>
+            <td> <input type="radio" id="slimfit" name="fit"></td>
+          </tr>
+          <tr>
+            <td><label for="loosefit">Loose</label></td>
+            <td><input type="radio" id="loosefit" name="fit"></td>
+          </tr>
+        </table>
         <button type="button" id="moreUpdate" class="button">Update Size</button>
       </div>
     </div>
-    <script src="SizingJS.js"></script>
+    <script src="./js/SizingJS.js"></script>
+    <script>
+//    function logout(){
+//      
+//          var promise = firebase.auth().signOut();          // Firebase Authenticated User Signout 
+//    }
+
+    
+    </script>
   </body>
 </html>

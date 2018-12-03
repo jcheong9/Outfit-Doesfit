@@ -1,53 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="css/navStyle.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
-    <!-- <style>
-    input[type=text], input[type=password] {
-      width: 100%;
-      padding: 10px 15px;
-      margin: 6px 0;
-      display: inline-block;
-      border: 1px solid black;
-      box-sizing: border-box;
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <style>
+      #firebaseui-auth-container{
+        position:relative;
+        top:100px;
       }
-      /* Set a style for all buttons */
-      button {
-      background-color: green;
-      color: white;
-      padding: 10px 18px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      }
-      button:hover {
-      opacity: 0.7;
-      }
-      /* Extra styles for the cancel button */
-      .cancelbtn {
-      width: auto;
-      padding: 10px 18px;
-      background-color: red;
-      }
-      /* Center the image and position the close button */
-      .imgcontainer {
-      text-align: center;
-      margin: 24px 0 12px 0;
-      position: relative;
-      }
-      img.avatar {
-      width: 100px;
-      border-radius: 50%;
-      }
-      .container {
-      padding: 16px;
-      }
-      span.psw {
-      float: right;
-      padding-top: 16px;
-      }
-    </style> -->
+    </style>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
@@ -67,88 +30,32 @@
     </script>
   </head>
   <body>
-      <nav>
-          <div id="companyName">
-            OutFit DoesFit
-          </div>
-        <ul>
-            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li> -->
-            <li class="navLink"><a href="Login.html">Login</a></li>
-            <!-- <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li> -->
-            <!-- <li class="navLink"><a href="Sizing.html">Sizing</a></li> -->
-            <!-- <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li> -->
-          </ul>
-      </nav>
-    <!-- <div id="id01" class="modal">
-      <form action="/action_page.php">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="./images/avatar.png" alt="Avatar" class="avatar">
-        </div>
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-          <button type="submit">Login</button>
-          <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
-    </div> -->
-    <h1 id="banner">  </h1>
+<!--    Background-->
+    <div id="login-background-image"></div>
+<!--    Navigation Bar-->
+    <nav>
+      <div>
+        <a id="companyName" href="Home.html">
+          OutFit DoesFit
+        </a>
+        <img id=navlogo src="images/hangar.png" alt="hanger"/>
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+        <li class="navLink"><a href="Comparsion.html">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html">Shopping</a></li>
+      </ul>
+  </nav>
+    
+    <div class="spacer">
+      <span>Welcome</span>
+    </div>
     <h1 id="quote">  </h1>
-    <script src="greeting.js"></script>
     <h1 id="firebaseui-auth-container"> </h1>
-    <script src="setup_firebase.js"></script>
-
-    <script>
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    </script>
-        <!-- The surrounding HTML is left untouched by FirebaseUI.
-       Your app may use that space for branding, controls and other customizations.-->
-      <h1></h1>
-      <div id="firebaseui-auth-container"></div>
       <div id="loader"></div>
-      <script>
-      var uiConfig = {
-    callbacks: {
-      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
-        return true;
-      },
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById('loader').style.display = 'none';
-      }
-    },
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-      signInFlow: 'popup',
-      signInSuccessUrl: 'Sizing.html',
-      signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users.
-//      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-//      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//      firebase.auth.PhoneAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: 'Sizing.html',
-      // Privacy policy url.
-      privacyPolicyUrl: 'Sizing.html'
-      };
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+    <script src="js/LoginJS.js"></script>
+
   </body>
 </html>
