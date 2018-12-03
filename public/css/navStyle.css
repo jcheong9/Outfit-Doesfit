@@ -9,8 +9,9 @@ nav {
   float: left;
   display: inline-block;
   padding: 0;
+  padding-top: 10px;
   height: 60px;
-  margin:0;
+  margin: 0;
   position: relative;
   top: 5px;
 }
@@ -20,10 +21,10 @@ nav li{
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 28px;
   padding-bottom: 5px;
   text-shadow: 2px 2px 1px black;
-  font-size:120%;
+  font-size:14pt;
 }
 
 #companyName {
