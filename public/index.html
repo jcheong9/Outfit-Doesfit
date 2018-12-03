@@ -1,65 +1,133 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Outfit DoesFit</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/navStyle.css"/>
+  <link rel="stylesheet" href="css/shoppingpagestyle.css"/>
+  <link rel="stylesheet" href="css/homeStyle.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/5.6.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/5.6.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/5.6.0/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/5.6.0/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.6.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.6.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.6.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.6.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+  <!-- Carousel BootStrap links-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <style type="text/css">
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
+      authDomain: "outfit-doesfit.firebaseapp.com",
+      databaseURL: "https://outfit-doesfit.firebaseio.com",
+      projectId: "outfit-doesfit",
+      storageBucket: "outfit-doesfit.appspot.com",
+      messagingSenderId: "59868218098"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+<body>
+  <nav>
+      <div>
+        <a id="companyName" href="Home.html" style="color:white;">
+          OutFit DoesFit
+        </a>
+        <img id=navlogo src="images/hangar.png" alt="hanger"/>
+      </div>
+    <ul>
+        <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li>
+        <li class="navLink"><a href="Login.html">Login</a></li> -->
+
+        <li class="navLink" ><a href="Comparsion.html" style="color:white;">Fitting Room</a></li>
+        <li class="navLink"><a href="Sizing.html" style="color:white;">Sizing</a></li>
+        <li class="navLink"><a href="Shopping_Page.html" style="color:white;">Shopping</a></li>
+      </ul>
+  </nav>
+
+  <!-- Carousel to show what our website can do-->
+<section class="Slider" style="width: 100%; margin: 0; padding: 0;">
+  <div  class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target=".carousel" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel" data-slide-to="1"></li>
+      <li data-target=".carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images/fitting_room_home1_text.jpg" alt="fittingroomtitle" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">OutFit DoesFit</div>
+      </div>
+      <div class="item">
+        <img src="images/fitting_room_home.jpg" alt="fitting_room" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">Finding Your Size</div>
+      </div>
+      <div class="item">
+        <img src="images/Partners.png" alt="our_partners" style="width:100%; height: 90vh;">
+        <div class="carousel-caption">Our Partners</div>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Controls -->
+    <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+  </div>
+</section>
+<!-- Overall Steps-->
+<div class="summary">
+  <img id="outfit_summary" src="images/outfit_summary.png"/>
+  <p id="description">Outfit DoesFit is a solution to online sizing difficulty. With a 5 step simple process, you will be ready to shop online and never worry about wrong sizing again.</p>
+  <button id="startButton" type="button">Start Now</button>
+</div>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+<!--About us-->
+<div class="aboutUs">
+    <div id="feature1">
+      <p>About us</p>
+      <p>Started in 2018, three guys came together and decided that they were done with always finding the wrong size when shopping online. So they came up with the idea for a website that compares their sizes with the different sizes of each store. Integreated with the brands like Nike, Adidas and Gap, they have continued to grow.</p>
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    // // The Firebase SDK is initialized and available here!
+    //
+    // firebase.auth().onAuthStateChanged(user => { });
+    // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+    // firebase.messaging().requestPermission().then(() => { });
+    // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+    //
+    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+    try {
+      let app = firebase.app();
+      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+    } catch (e) {
+      console.error(e);
+      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    }
+  });
+</script>
+</body>
+
 </html>
