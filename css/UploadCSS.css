@@ -1,76 +1,82 @@
-
-          #instructions{
-            margin: 20px;
-          }
-            /* The Modal (background) */
-            .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            }
-            /* Modal Content */
-            .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            margin-left:150px;
-            border: 1px solid #888;
-            width: 80%;
-            }
-            /* The Close Button */
-            .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            }
-            .close:hover,
-            .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-            }
-            .photo{
-            max-height: 300px;
-            max-width: 100px;
-            }
-          
-/*          Photo divs*/
-            #sidephotodiv, #frontphotodiv{
-            display:inline-block;
-            width:20%;
-            }
-            #sidephotodiv img,  #frontphotodiv img{
-              position:relative;
-              left:35px;
-            }
-          #myBtn, #myBtn2{
-            position: relative;
-            right:80px;
-            top:40px;
-          }
-          #sidephotodiv{
-            margin-left:30%
-          }
-          #analyze{
-				float:right;
-              margin-right:20px;
-			}
-/*          Bottom Div */
-          #skip{
-            margin-left: 20px;
-          }
-h2{
-  position:relative;
-  display:block;
-  left:20px;
+ #instructions{
+     margin: 20px;
 }
-          
+/* The Modal (background) */
+ .modal {
+     display: none;
+    /* Hidden by default */
+     position: fixed;
+    /* Stay in place */
+     z-index: 1;
+    /* Sit on top */
+     padding-top: 100px;
+    /* Location of the box */
+     left: 0;
+     top: 0;
+     width: 100%;
+    /* Full width */
+     height: 100%;
+    /* Full height */
+     overflow: auto;
+    /* Enable scroll if needed */
+     background-color: rgb(0,0,0);
+    /* Fallback color */
+     background-color: rgba(0,0,0,0.4);
+    /* Black w/ opacity */
+}
+/* Modal Content */
+ .modal-content {
+     background-color: #fefefe;
+     margin: auto;
+     padding: 20px;
+     margin-left:150px;
+     border: 1px solid #888;
+     width: 80%;
+}
+/* The Close Button */
+ .close {
+     color: #aaaaaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
+}
+ .close:hover, .close:focus {
+     color: #000;
+     text-decoration: none;
+     cursor: pointer;
+}
+ .photo{
+     max-height: 300px;
+     max-width: 100px;
+}
+/* Photo divs*/
+ #sidephotodiv, #frontphotodiv{
+     display:inline-block;
+     width:20%;
+}
+ #sidephotodiv img, #frontphotodiv img{
+     position:relative;
+     left:35px;
+}
+ #myBtn, #myBtn2{
+     position: relative;
+     right:80px;
+     top:40px;
+}
+ #sidephotodiv{
+     margin-left:30% 
+}
+ #analyze{
+     float:right;
+     margin-right:20px;
+}
+/* Bottom Div */
+ #skip{
+     margin-left: 20px;
+}
+ h2{
+     position:relative;
+     display:block;
+     left:20px;
+}
+ 
