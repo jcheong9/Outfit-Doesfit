@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>Comparsion</title>
+      <link rel="stylesheet" href="css/navStyle.css"/>
+      <link rel="stylesheet" href="./css/style.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+        <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAvz3wtF_zua_MODBHMJ47fngkypJ65nck",
+        authDomain: "outfit-doesfit.firebaseapp.com",
+        databaseURL: "https://outfit-doesfit.firebaseio.com",
+        projectId: "outfit-doesfit",
+        storageBucket: "outfit-doesfit.appspot.com",
+        messagingSenderId: "59868218098"
+      };
+      firebase.initializeApp(config);
+    </script>
+      </head>
+      <body>
+        <div class="background-image"></div>
+        <!-- nav bar -->
+        <nav>
+          <div>
+            <a id="companyName" href="Home.html">
+          OutFit DoesFit
+        </a>
+            <img id=navlogo src="images/hangar.png" alt="hanger"/>
+          </div>
+          <ul>
+            <!-- <li class="navLink"><a href="Create_Account.html">Register</a></li><li class="navLink"><a href="Login.html">Login</a></li> -->
+            <li class="navLink">
+              <a href="Comparsion.html">Fitting Room</a>
+            </li>
+            <li class="navLink">
+              <a href="Sizing.html">Sizing</a>
+            </li>
+            <li class="navLink">
+              <a href="Shopping_Page.html">Shopping</a>
+            </li>
+            <li class="navLink">
+              <a href="Home.html">Home</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- titles for contents -->
+        <div id="content">
+          <div id=pageName>
+            <span>Fitting room</span>
+          </div>
+          <div id="main-cont">
+            <div class="boxContainer">
+              <div class="box">
+                <h4>Your Size</h4>
+              </div>
+              <div class="box">
+                <h4>How much bigger or small?</h4>
+              </div>
+              <div class="box">
+                <h4>Selected clothes from fitting room</h4>
+              </div>
+            </div>
+            <!-- images for contents -->
+            <div class="boxContainer">
+              <div class="box">
+                <img id="left" src="./images/yourSize.PNG" alt="rightImage">
+                </div>
+                <div class="box">
+                  <img id="middle" src="./images/middleImage.jpg" alt="middleImage">
+                  </div>
+                  <div class="box">
+                    <img id="right" src="./images/shirtplaceholder.png" alt="leftImage">
+                    </div>
+                  </div>
+                  <!-- edit button leads back to sizing page -->
+                  <div class="boxContainer">
+                    <div class="box">
+                      <button class="button" type="button" name="editButton" onclick="location.href='Sizing.html';">EDIT</button>
+                    </div>
+                    <!-- Recommended Size -->
+                    <div class="box">
+                      <div id="centerBottom">
+                        <h4>Recommended Size</h4>
+                        <div class="boxContainer">
+                          <div class="box"></div>
+                          <div class="box" id="size">Unavailable Size</div>
+                          <div class="box"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Brand name -->
+                    <div class="box">
+                      <h4 id="brandName">Banana Republic</h4>
+                      <!-- buttons to cycle through images -->
+                      <div class="boxContainer">
+                        <div class="box">
+                          <button class="button" type="button" name="lastButton" id="lastButton">Previous</button>
+                        </div>
+                        <div class="box">
+                          <button class="button" type="button" name="removeButton" id="removeButton">Remove</button>
+                        </div>
+                        <div class="box">
+                          <button class="button" type="button" name="nextButton" id="nextButton">Next</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="./js/comparison.js"></script>
+              </body>
+            </html>
