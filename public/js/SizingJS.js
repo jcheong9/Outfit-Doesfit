@@ -41,7 +41,6 @@
         messagingSenderId: "59868218098"
       };
       firebase.initializeApp(config);
-      console.log(firebase);
       
       //Uploads and Updates the user dimensions to firebase
       function updateFirebase(){
@@ -59,7 +58,6 @@
       
       //Uploads and Updates the user dimensions to firebase MODAL VERISON
       function updateFirebase2(){
-        console.log("update 2 ran");
         var fb2 = firebase.database().ref();
       //          //get field val
         armSize = document.getElementById('modalArmSize').value;
@@ -75,7 +73,6 @@
       //Your sizing results drop down menu
       //    Caluclates your brand size based on what brand is chosen.      
       function getData(size, brand){
-        console.log("size and brand:" + size + brand);
         if(brand == "Adidas"){
           document.getElementById("bodyPart1").innerHTML="Chest";
           document.getElementById("bodyPart2").innerHTML="Waist";
@@ -176,7 +173,6 @@
         var selectedValue = document.getElementById("topsList").value;
         var yourSize = firebase.database().ref("users/your"+selectedValue+"Size/");
         yourSize.on('value', function(snapshot){
-          console.log(snapshot.val());
           if (snapshot.val() == "Large"){
             getData("Large", selectedValue);
           } else if (snapshot.val() == "Medium"){
@@ -193,15 +189,11 @@
         var fb = firebase.database().ref();
         refChestSize.on('value', function(snapshot){
           var testing = snapshot.val();
-          console.log(testing);
-          if(testing > 38){
-            console.log("youre large");
+          if(testing > 39){
             yourAdidasSize = "Large";
-          }else if (testing > 34){
-            console.log("youre medium");
+          }else if (testing > 38){
             yourAdidasSize = "Medium";
           } else {
-          console.log("youre small")
           yourAdidasSize = "Small";
           };
           chestSize = {yourAdidasSize}
@@ -217,15 +209,11 @@
         var fb = firebase.database().ref();
         refChestSize.on('value', function(snapshot){
           var testing = snapshot.val();
-          console.log(testing);
-          if(testing > 42){
-            console.log("youre large");
+          if(testing >= 42){
             yourGapSize = "Large";
-          }else if (testing > 39){
-            console.log("youre medium");
+          }else if (testing >= 39){
             yourGapSize = "Medium";
           } else {
-          console.log("youre small")
           yourGapSize = "Small";
           };
           chestSize = {yourGapSize}
@@ -240,15 +228,11 @@
               var fb = firebase.database().ref();
               refChestSize.on('value', function(snapshot){
                 var testing = snapshot.val();
-                console.log(testing);
-                if(testing > 41){
-                  console.log("youre large");
+                if(testing >= 41){
                   yourNikeSize = "Large";
-                }else if (testing > 37.5){
-                  console.log("youre medium");
+                }else if (testing >= 37.5){
                   yourNikeSize = "Medium";
                 } else {
-                console.log("youre small")
                 yourNikeSize = "Small";
                 };
                 chestSize = {yourNikeSize}
