@@ -73,6 +73,8 @@
     <br/>
     <button id="filterbutton" type="button">Filter</button>
   </div>
+  
+  <!--Main Content of Clothing Options with buttons to add/remove to fitting room-->
   <div class=content>
     <div id=pant>
       Partner Brands
@@ -176,6 +178,7 @@
   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Javascript for getting clothes files-->
     <script>
     $(document).ready(function(){
       var starCountRef = firebase.database().ref('/Clothing');
@@ -204,7 +207,7 @@
           count++;
         }
       });
-      //btn 1
+      /*Button console logging to make sure it works*/
       $("#Shirt1btnAdd").on("click", function(event){
         console.log("clicked",$(this));
 

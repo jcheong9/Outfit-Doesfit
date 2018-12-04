@@ -4,46 +4,7 @@ body {
   padding: 0;
   border: 0;
 }
-
-/*nav {
-  height: 60px;
-  background-color: #2f435e;
-  color: white;
-}
-#navlogo {
-  float: left;
-  display: inline-block;
-  padding: 0;
-  height: 60px;
-  margin: 0;  
-}
-nav ul{
-  float: right;
-  width: 60%;
-  margin: 0;
-  height: 60px;
-}
-
-nav li{
-  display: inline-block;
-  float: right;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 5px;
-}
-#companyName{
-  padding-left: 2%;
-  font-size: 24pt;
-  float: left;
-  width: 20%;
-  height: 60px;
-  border: 0;
-  padding: 0;
-  margin-left: 20px;
-}*/
-
+/*Anchor links*/
 a {
   text-decoration: none;
   color: white;
@@ -52,6 +13,7 @@ a:hover{
     text-decoration: none;
     color: white;
 }
+/*Slider for the filter options*/
 .slider {
     -webkit-appearance: none;
     width: 140px;
@@ -91,19 +53,6 @@ a:hover{
   width: 30px;
   text-align: center;
 }
-
-
-.storeheader {
-  background-color: white;
-  width: 100vw;
-  height:10vh;
-  text-align: center;
-}
-
-h1 {
-  margin-top: 0;
-}
-
 .filter {
   background-color:darkgrey;
   float:left;
@@ -122,7 +71,18 @@ h1 {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+/*Store header*/
+.storeheader {
+  background-color: white;
+  width: 100vw;
+  height:10vh;
+  text-align: center;
+}
 
+h1 {
+  margin-top: 0;
+}
+/*Table design*/
 .content {
   background-color: white;
   float:right;
@@ -158,12 +118,14 @@ h1 {
   height: 250px;
 }
 
+/*Buttons CSS for the content*/
 .button {
   float:right;
   padding-right:10%;
   width: 75px;
   height: 75px;
 }
+
 .addbutton:hover { background: #2f435e; }
 .removebutton:hover { background: #2f435e; }
 .addbutton {
